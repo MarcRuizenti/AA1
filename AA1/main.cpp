@@ -86,12 +86,14 @@ void Intro() {
 	cout << "------------------------------------------------" << endl;
 	cout << "May I ask your name, brave hero? ";
 	cin >> player.name;
-
+	cout << " " << endl;
 	currentScene = 1;
 }
 
 void Navigation() {
-	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]";
+	string direction;
+	string comando;
+	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
 	cout << "You con go: ";
 	bool north = map[player.file - 1][player.column] != '#';
@@ -112,6 +114,9 @@ void Navigation() {
 	if (south) {
 		cout << "[SOUTH]";
 	}
+	cout << endl;
+	cin >> comando >> direction;
+
 }
 
 void Combat() {
