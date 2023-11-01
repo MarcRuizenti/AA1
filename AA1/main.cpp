@@ -63,3 +63,11 @@ void Intro() {
 void Navigation() {
 
 }
+
+void Combat() {
+
+}
+
+void PickupItem() {
+
+}
