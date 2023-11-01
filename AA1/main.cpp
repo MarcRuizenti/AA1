@@ -75,6 +75,7 @@ void help() {
 	cout << "    " << "Recoge el objeto que hay en la zona de mapa actual y la añade al inventario del jugador." << endl;
 	cout << "    " << "Ten en cuenta que si recojo un objeto, ya no me debe informar de que ese objeto está en esa posición del mapa." << endl;
 	cout << "use + [potion | sword | bomb | key]" << endl;
+	cout << " " << endl;
 }
 
 void Intro() {
@@ -100,7 +101,7 @@ void status() {
 	int key = 0;
 
 	cout << "------------ PLAYER ------------" << endl;
-	cout << player.name;
+	cout << player.name << endl;
 	cout << "--------------------------------" << endl;
 	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
 	cout << "-----------INVENTORY------------" << endl;
