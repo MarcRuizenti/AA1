@@ -41,7 +41,14 @@ int main() {
 	}
 }
 void Intro() {
-
+	cout << "------------ HERO'S QUEST ------------" << endl;
+	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
+	cout << "It is your duty as the chosen hero to defeat him and retrieve the gem to restore peace. " << endl;
+	cout << " " << endl;
+	cout << "You have an enchanted charm that tells you where Jarenauer's lair is " << endl;
+	cout << " " << endl;
+	cout << "Use the HELP command to show the options " << endl;
+	cout << "------------------------------------------------" << endl;
 }
 void Navigation() {
 
