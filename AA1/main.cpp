@@ -118,7 +118,8 @@ void status() {
 	cout << "Bomb: " << bomb << endl;
 	cout << "Sword: " << sword << endl;
 	cout << "Key: " << key << endl;
-
+	cout << "--------------------------------" << endl;
+	cout << " " << endl;
 }
 
 
