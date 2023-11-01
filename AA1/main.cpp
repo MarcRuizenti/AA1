@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string>
 #include <vector>
+#include <sstream>
 
 #define SIZE 10
 int currentScene = 0;
@@ -90,6 +91,7 @@ void Intro() {
 	cout << "------------------------------------------------" << endl;
 	cout << "May I ask your name, brave hero? ";
 	cin >> player.name;
+	cin.ignore();
 	cout << " " << endl;
 	currentScene = 1;
 }
@@ -177,18 +179,27 @@ void go(string direc) {
 }
 
 void whatwillyoudo() {
-	string direction;
-	string comando;
-
+	string input;
 	cout << "What will you do?: ";
-	cin >> comando >> direction;
+	getline(cin, input);
+	cout << " " << endl;
 
-	if (comando == "go")
-		go(direction);
-	else if (comando == "help")
-		help();
-	else if (comando == "status")
-		status();
+	if (input.empty()) {
+		cout << "You didn't enter anything." << endl;
+	}
+	else {
+		// Procesa la entrada según tus necesidades
+		string comando, direction;
+		istringstream iss(input);
+		iss >> comando >> direction;
+	
 
+		if (comando == "go")
+			go(direction);
+		else if (comando == "help")
+			help();
+		else if (comando == "status")
+			status();
+	}
 
 }
