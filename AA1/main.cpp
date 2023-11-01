@@ -86,9 +86,17 @@ void Intro() {
 	cout << "------------------------------------------------" << endl;
 	cout << "May I ask your name, brave hero? ";
 	cin >> player.name;
+
+	currentScene = 1;
 }
 
 void Navigation() {
+	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]";
+	
+	
+	bool north = map[player.file - 1][player.column] != '#';
+
+	if(north)
 
 }
 
@@ -113,7 +121,4 @@ void go(string direc) {
 	else if (direc == "north") {
 		player.file -= 1;
 	}
-
-
-
 }
