@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+const int size = 10;
 int currentScene = 0;
 using namespace std;
 
@@ -53,7 +54,7 @@ void Intro() {
 		100,
 		100
 	};
-	char map[10][10]{
+	char map[size][size]{
 		{'#','#','#','#','#','#','#','#','#','#'},
 		{'#','@','.','P','.','P','.','.','.','#'},
 		{'#','#','#','G','#','S','#','#','M','#'},
@@ -91,6 +92,6 @@ void PickupItem() {
 
 }
 
-void go() {
+void go(char mapa[size][size]) {
 
 }
