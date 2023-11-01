@@ -16,7 +16,7 @@ struct Player {
 	vector<string> inventory;
 
 };
-
+void go();
 void Intro();
 void Navigation();
 void Combat();
@@ -60,6 +60,8 @@ void Intro() {
 		{'#','.','.','.','.','K','.','.','B','#'},
 		{'#','#','#','#','#','#','#','#','#','#'},
 	};
+
+
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
 	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
 	cout << "It is your duty as the chosen hero to defeat him and retrieve the gem to restore peace. " << endl;
