@@ -16,6 +16,7 @@ struct Player {
 	vector<string> inventory;
 
 };
+void help();
 void go();
 void Intro();
 void Navigation();
