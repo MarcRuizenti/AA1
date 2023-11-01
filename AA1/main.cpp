@@ -100,6 +100,20 @@ void PickupItem() {
 
 }
 
-void go(char mapa[SIZE][SIZE]) {
+void go(string direc) {
+	if (direc == "east") {
+		player.column += 1;
+	}
+	else if (direc == "west") {
+		player.column -= 1;
+	}
+	else if (direc == "south") {
+		player.file += 1;
+	}
+	else if (direc == "north") {
+		player.file -= 1;
+	}
+
+
 
 }
