@@ -43,7 +43,8 @@ int main() {
 }
 
 void help() {
-
+	cout << "------- COMAND HELP -------" << endl;
+	cout << ""
 }
 
 void Intro() {
