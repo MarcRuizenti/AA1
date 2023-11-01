@@ -30,8 +30,8 @@ int main() {
 	}
 }
 void Intro() {
-	std::cout << "El repositorio funciona" << std::endl;
+
 }
 void Navigation() {
-	std::cout << "Hola" << std::endl;
+
 }
