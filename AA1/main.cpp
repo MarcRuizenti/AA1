@@ -5,6 +5,7 @@
 #include <vector>
 
 int currentScene = 0;
+using namespace std;
 
 void Intro();
 void Navigation();
