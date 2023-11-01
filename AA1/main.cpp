@@ -90,6 +90,14 @@ void Intro() {
 	currentScene = 1;
 }
 
+void PLAYER() {
+	cout << "------------ PLAYER ------------" << endl;
+	cout << player.name;
+	cout << "--------------------------------" << endl;
+	cout << "-----------INVENTORY------------" << endl;
+}
+
+
 void Navigation() {
 	string direction;
 	string comando;
