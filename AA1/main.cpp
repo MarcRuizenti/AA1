@@ -8,7 +8,7 @@
 int currentScene = 0;
 using namespace std;
 enum Items {POTION, BOMB, SWORD, KEY};
-
+vector<int> a;
 struct Player {
 	string name;
 	int file;
@@ -41,6 +41,7 @@ char map[SIZE][SIZE]{
 
 void help();
 void go();
+void status();
 void Intro();
 void Navigation();
 void Combat();
@@ -91,13 +92,32 @@ void Intro() {
 	currentScene = 1;
 }
 
-void PLAYER() {
+void status() {
+	int potions = 0;
+	int bomb = 0;
+	int sword = 0;
+	int key = 0;
+
 	cout << "------------ PLAYER ------------" << endl;
 	cout << player.name;
 	cout << "--------------------------------" << endl;
 	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
 	cout << "-----------INVENTORY------------" << endl;
-	
+	for (int i = 0; i < player.inventory.size(); i++) {
+		if (player.inventory[i] == 1)
+			potions++;
+		else if (player.inventory[i] == 2)
+			bomb++;
+		else if (player.inventory[i] == 3)
+			sword++;
+		else if (player.inventory[i] == 4)
+			key++;
+	}
+	cout << "Potions: " << potions << endl;
+	cout << "Bomb: " << bomb << endl;
+	cout << "Sword: " << sword << endl;
+	cout << "Key: " << key << endl;
+
 }
 
 
