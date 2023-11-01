@@ -95,7 +95,7 @@ void Navigation() {
 	string comando;
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
-	cout << "You con go: ";
+	cout << "You can go: ";
 	bool north = map[player.file - 1][player.column] != '#';
 	bool west = map[player.file][player.column - 1] != '#';
 	bool east = map[player.file][player.column + 1] != '#';
