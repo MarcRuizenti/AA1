@@ -93,11 +93,25 @@ void Intro() {
 void Navigation() {
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]";
 	
-	
+	cout << "You con go: ";
 	bool north = map[player.file - 1][player.column] != '#';
+	bool west = map[player.file][player.column - 1] != '#';
+	bool east = map[player.file][player.column + 1] != '#';
+	bool south = map[player.file + 1][player.column] != '#';
 
-	if(north)
 
+	if (north) {
+		cout << "[NORTH]";
+	}
+	if (west) {
+		cout << "[WEST]";
+	}
+	if (east) {
+		cout << "[EAST]";
+	}
+	if (south) {
+		cout << "[SOUTH]";
+	}
 }
 
 void Combat() {
