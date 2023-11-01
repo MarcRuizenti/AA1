@@ -49,7 +49,7 @@ void Intro() {
 		100
 	};
 
-	cout << "------------ HERO'S QUEST ------------" << endl;
+	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
 	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
 	cout << "It is your duty as the chosen hero to defeat him and retrieve the gem to restore peace. " << endl;
 	cout << " " << endl;
@@ -60,6 +60,7 @@ void Intro() {
 	cout << "May I ask your name, brave hero? ";
 	cin >> player.name;
 }
+
 void Navigation() {
 
 }
