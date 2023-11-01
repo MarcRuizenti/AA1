@@ -7,6 +7,16 @@
 int currentScene = 0;
 using namespace std;
 
+struct Player {
+	string name;
+	int file;
+	int column;
+	int maxHealth;
+	int health;
+	vector<string> inventory;
+
+};
+
 void Intro();
 void Navigation();
 void Combat();
