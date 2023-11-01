@@ -4,16 +4,28 @@
 #include <string>
 #include <vector>
 
-void Prueba();
-void Prueba2();
+int currentScene = 0;
+
+void Intro();
+void Navigation();
+void Combat();
+void PickupItem();
 int main() {
-	Prueba();
-	Prueba2();
-}
-
-void Prueba() {
-	
-}
-void Prueba2() {
-
+	while (true) {
+		if (currentScene == 0) {
+			Intro();
+		}
+		else if (currentScene == 1) {
+			Navigation();
+		}
+		else if (currentScene == 2) {
+			Combat();
+		}
+		else if (currentScene == 3) {
+			PickupItem();
+		}
+		else {
+			return 0;
+		}
+	}
 }
