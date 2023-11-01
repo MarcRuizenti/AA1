@@ -48,6 +48,7 @@ void Intro() {
 		100,
 		100
 	};
+	char map[10][10];
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
 	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
