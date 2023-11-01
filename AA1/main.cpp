@@ -14,7 +14,6 @@ struct Player {
 	int maxHealth;
 	int health;
 	vector<string> inventory;
-
 };
 void help();
 void go();
@@ -84,5 +83,9 @@ void Combat() {
 }
 
 void PickupItem() {
+
+}
+
+void go() {
 
 }
