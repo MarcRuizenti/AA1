@@ -7,6 +7,7 @@
 #define SIZE 10
 int currentScene = 0;
 using namespace std;
+enum Items {POTION, BOMB, SWORD, KEY};
 
 struct Player {
 	string name;
@@ -14,7 +15,7 @@ struct Player {
 	int column;
 	int maxHealth;
 	int health;
-	vector<string> inventory;
+	vector<int> inventory;
 };
 
 Player player{
@@ -94,7 +95,9 @@ void PLAYER() {
 	cout << "------------ PLAYER ------------" << endl;
 	cout << player.name;
 	cout << "--------------------------------" << endl;
+	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
 	cout << "-----------INVENTORY------------" << endl;
+	
 }
 
 
