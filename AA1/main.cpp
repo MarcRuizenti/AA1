@@ -33,5 +33,5 @@ void Intro() {
 
 }
 void Navigation() {
-
+	std::cout << "Hola" << std::endl;
 }
