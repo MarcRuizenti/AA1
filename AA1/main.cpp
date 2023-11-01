@@ -40,6 +40,11 @@ int main() {
 		}
 	}
 }
+
+void help() {
+
+}
+
 void Intro() {
 	Player player{
 		"Luis",
