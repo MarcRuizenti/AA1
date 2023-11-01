@@ -105,13 +105,13 @@ void status() {
 	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
 	cout << "-----------INVENTORY------------" << endl;
 	for (int i = 0; i < player.inventory.size(); i++) {
-		if (player.inventory[i] == 1)
+		if (player.inventory[i] == POTION)
 			potions++;
-		else if (player.inventory[i] == 2)
+		else if (player.inventory[i] == BOMB)
 			bomb++;
-		else if (player.inventory[i] == 3)
+		else if (player.inventory[i] == SWORD)
 			sword++;
-		else if (player.inventory[i] == 4)
+		else if (player.inventory[i] == KEY)
 			key++;
 	}
 	cout << "Potions: " << potions << endl;
