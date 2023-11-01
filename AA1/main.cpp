@@ -41,6 +41,14 @@ int main() {
 	}
 }
 void Intro() {
+	Player player{
+		"Luis",
+		1,
+		1,
+		100,
+		100
+	};
+
 	cout << "------------ HERO'S QUEST ------------" << endl;
 	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
 	cout << "It is your duty as the chosen hero to defeat him and retrieve the gem to restore peace. " << endl;
@@ -49,6 +57,8 @@ void Intro() {
 	cout << " " << endl;
 	cout << "Use the HELP command to show the options " << endl;
 	cout << "------------------------------------------------" << endl;
+	cout << "May I ask your name, brave hero? ";
+	cin >> player.name;
 }
 void Navigation() {
 
