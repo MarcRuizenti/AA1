@@ -41,6 +41,7 @@ char map[SIZE][SIZE]{
 
 void help();
 void go();
+void whatwillyoudo();
 void status();
 void Intro();
 void Navigation();
@@ -122,8 +123,6 @@ void status() {
 
 
 void Navigation() {
-	string direction;
-	string comando;
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
 	cout << "You can go: ";
@@ -146,8 +145,8 @@ void Navigation() {
 		cout << "[SOUTH]";
 	}
 	cout << endl;
-	cin >> comando >> direction;
-
+	
+	whatwillyoudo();
 }
 
 void Combat() {
@@ -171,4 +170,21 @@ void go(string direc) {
 	else if (direc == "north") {
 		player.file -= 1;
 	}
+}
+
+void whatwillyoudo() {
+	string direction;
+	string comando;
+
+	cout << "What will you do?: ";
+	cin >> comando >> direction;
+
+	if (comando == "go")
+		go(direction);
+	else if (comando == "help")
+		help();
+	else if (comando == "status")
+		status();
+
+
 }
