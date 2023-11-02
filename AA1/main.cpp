@@ -154,7 +154,6 @@ void Navigation(Player& player, char map[][SIZE]) {
 		bool east = map[player.file][player.column + 1] != '#';
 		bool south = map[player.file + 1][player.column] != '#';
 
-
 		if (north) {
 			cout << "[NORTH]";
 		}
@@ -243,7 +242,6 @@ void Navigation(Player& player, char map[][SIZE]) {
 	else {
 		currentScene = COMBAT;
 	}
-	
 }
 
 void Combat() {
@@ -303,7 +301,6 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s,char m[][SIZE]
 		string comando, direction;
 		istringstream iss(input);
 		iss >> comando >> direction;
-	
 
 		if (comando == "go")
 			go(direction, player, n, w, e, s);
