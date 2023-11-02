@@ -23,12 +23,12 @@ struct Player {
 
 void help();
 void go(string direc, Player& player, bool n, bool w, bool e, bool s);
-void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s);
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]);
 void status(Player& player);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]); 
 void Combat();
-void PickupItem();
+void PickupItem(Player p, char map[][SIZE], string collect);
 int main() {
 	char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
@@ -168,8 +168,10 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "[SOUTH]";
 		}
 		cout << endl;
+		if (map[player.file][player.column] == 'P')
+			cout << "There is a Potion on the floor" << endl;
 
-		whatwillyoudo(player, north, west, east, south);
+		whatwillyoudo(player, north, west, east, south, map);
 	}
 	else {
 		currentScene = COMBAT;
@@ -220,7 +222,7 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 	}
 }
 
-void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s) {
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s,char m[][SIZE]) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
@@ -237,11 +239,13 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s) {
 	
 
 		if (comando == "go")
-			go(direction, player, n, w ,e ,s);
+			go(direction, player, n, w, e, s);
 		else if (comando == "help")
 			help();
 		else if (comando == "status")
 			status(player);
+		else if (comando == "pickup")
+			PickupItem(player, m, direction);
 	}
 
 }
