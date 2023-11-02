@@ -8,37 +8,7 @@
 #define SIZE 10
 int currentScene = 0;
 using namespace std;
-enum Items {POTION, BOMB, SWORD, KEY};
-vector<int> a;
-struct Player {
-	string name;
-	int file;
-	int column;
-	int maxHealth;
-	int health;
-	vector<int> inventory;
-};
 
-Player player{
-	"Luis",
-	1,
-	1,
-	100,
-	100
-};
-
-char map[SIZE][SIZE]{
-	{'#','#','#','#','#','#','#','#','#','#'},
-	{'#','@','.','P','.','P','.','.','.','#'},
-	{'#','#','#','G','#','S','#','#','M','#'},
-	{'#','.','.','.','#','#','#','#','#','#'},
-	{'#','.','T','.','#','J','#','.','B','#'},
-	{'#','.','.','.','#','L','#','.','.','#'},
-	{'#','#','.','#','#','.','#','T','T','#'},
-	{'#','P','G','#','#','O','#','.','.','#'},
-	{'#','.','.','.','.','K','.','.','B','#'},
-	{'#','#','#','#','#','#','#','#','#','#'},
-};
 
 void help();
 void go();
@@ -49,6 +19,37 @@ void Navigation();
 void Combat();
 void PickupItem();
 int main() {
+	enum Items { POTION, BOMB, SWORD, KEY };
+	struct Player {
+		string name;
+		int file;
+		int column;
+		int maxHealth;
+		int health;
+		vector<Items> inventory;
+	};
+
+	Player player{
+		"Luis",
+		1,
+		1,
+		100,
+		100
+	};
+
+	char map[SIZE][SIZE]{
+		{'#','#','#','#','#','#','#','#','#','#'},
+		{'#','@','.','P','.','P','.','.','.','#'},
+		{'#','#','#','G','#','S','#','#','M','#'},
+		{'#','.','.','.','#','#','#','#','#','#'},
+		{'#','.','T','.','#','J','#','.','B','#'},
+		{'#','.','.','.','#','L','#','.','.','#'},
+		{'#','#','.','#','#','.','#','T','T','#'},
+		{'#','P','G','#','#','O','#','.','.','#'},
+		{'#','.','.','.','.','K','.','.','B','#'},
+		{'#','#','#','#','#','#','#','#','#','#'},
+	};
+
 	while (true) {
 		if (currentScene == 0) {
 			Intro();
