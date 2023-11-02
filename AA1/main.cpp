@@ -168,16 +168,16 @@ void PickupItem() {
 }
 
 void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
-	if (direc == "east" ) {
+	if (direc == "east" && e) {
 		player.column += 1;
 	}
-	else if (direc == "west") {
+	else if (direc == "west" && w) {
 		player.column -= 1;
 	}
-	else if (direc == "south") {
+	else if (direc == "south" && s) {
 		player.file += 1;
 	}
-	else if (direc == "north") {
+	else if (direc == "north" && n) {
 		player.file -= 1;
 	}
 }
