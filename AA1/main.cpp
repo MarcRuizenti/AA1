@@ -129,7 +129,7 @@ void status(Player& player) {
 }
 
 void Navigation(Player& player, char map[][SIZE]) {
-	if (map[player.file][player.column] != 'G' || map[player.file][player.column] != 'O' || map[player.file][player.column] != 'T') {
+	if (map[player.file][player.column] != 'G' && map[player.file][player.column] != 'O' && map[player.file][player.column] != 'T') {
 		cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 
 		if (player.file < 5 && player.column < 6)
