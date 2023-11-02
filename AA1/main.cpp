@@ -98,7 +98,7 @@ void Intro(Player& player) {
 	cin >> player.name;
 	cin.ignore();
 	cout << " " << endl;
-	currentScene = 1;
+	currentScene = NAVIGATION;
 }
 
 void status(Player& player) {
