@@ -27,7 +27,7 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s);
 void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s);
 void status(Player& player);
 void Intro(Player& player);
-void Navigation(Player& player, char map[SIZE][SIZE]); 
+void Navigation(Player& player, char map[][SIZE]); 
 void Combat();
 void PickupItem();
 int main() {
@@ -133,7 +133,7 @@ void status(Player& player) {
 }
 
 
-void Navigation(Player& player, char map[SIZE][SIZE]) {
+void Navigation(Player& player, char map[][SIZE]) {
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
 	cout << "You can go: ";
