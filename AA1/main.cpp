@@ -28,7 +28,7 @@ void status(Player& player);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]); 
 void Combat();
-void PickupItem(Player p, char map[][SIZE], string collect);
+void pickupItem(Player p, char map[][SIZE], string collect);
 int main() {
 	char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
@@ -178,6 +178,50 @@ void Navigation(Player& player, char map[][SIZE]) {
 		else if (map[player.file][player.column] == 'S')
 			cout << "There is a Sword on the floor" << endl;
 
+		if (map[player.file - 1][player.column] == 'P')
+			cout << "There is a Potion at north" << endl;
+		else if (map[player.file - 1][player.column] == 'B')
+			cout << "There is a Bomb at north" << endl;
+		else if (map[player.file - 1][player.column] == 'K')
+			cout << "There is a Key at north" << endl;
+		else if (map[player.file - 1][player.column] == 'S')
+			cout << "There is a Sword at north" << endl;
+		else if (map[player.file - 1][player.column] == 'G')
+			cout << "There is a Goblin at north" << endl;
+		else if (map[player.file - 1][player.column] == 'O')
+			cout << "There is a Orc at north" << endl;
+		else if (map[player.file - 1][player.column] == 'T')
+			cout << "There is a Troll at north" << endl;
+
+		if (map[player.file + 1][player.column] == 'P')
+			cout << "There is a Potion at south" << endl;
+		else if (map[player.file + 1][player.column] == 'B')
+			cout << "There is a Bomb at south" << endl;
+		else if (map[player.file + 1][player.column] == 'K')
+			cout << "There is a Key at south" << endl;
+		else if (map[player.file + 1][player.column] == 'S')
+			cout << "There is a Sword at south" << endl;
+		else if (map[player.file + 1][player.column] == 'G')
+			cout << "There is a Goblin at south" << endl;
+		else if (map[player.file + 1][player.column] == 'O')
+			cout << "There is a Orc at south" << endl;
+		else if (map[player.file + 1][player.column] == 'T')
+			cout << "There is a Troll at south" << endl;
+
+		if (map[player.file + 1][player.column] == 'P')
+			cout << "There is a Potion at south" << endl;
+		else if (map[player.file + 1][player.column] == 'B')
+			cout << "There is a Bomb at south" << endl;
+		else if (map[player.file + 1][player.column] == 'K')
+			cout << "There is a Key at south" << endl;
+		else if (map[player.file + 1][player.column] == 'S')
+			cout << "There is a Sword at south" << endl;
+		else if (map[player.file + 1][player.column] == 'G')
+			cout << "There is a Goblin at south" << endl;
+		else if (map[player.file + 1][player.column] == 'O')
+			cout << "There is a Orc at south" << endl;
+		else if (map[player.file + 1][player.column] == 'T')
+			cout << "There is a Troll at south" << endl;
 
 		whatwillyoudo(player, north, west, east, south, map);
 	}
@@ -191,7 +235,7 @@ void Combat() {
 
 }
 
-void PickupItem(Player p, char map[][SIZE], string collect) {
+void pickupItem(Player p, char map[][SIZE], string collect) {
 	if (map[p.file][p.column] == 'P' || map[p.file][p.column] == 'B' || map[p.file][p.column] == 'S' || map[p.file][p.column] == 'K') {
 		if (collect == "Potion") {
 			p.inventory.push_back(POTION);
@@ -252,8 +296,8 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s,char m[][SIZE]
 			help();
 		else if (comando == "status")
 			status(player);
-		else if (comando == "pickup")
-			PickupItem(player, m, direction);
+		else if (comando == "pick")
+			pickupItem(player, m, direction);
 	}
 
 }
