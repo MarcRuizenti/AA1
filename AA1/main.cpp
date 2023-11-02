@@ -28,7 +28,7 @@ void status(Player& player);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]); 
 void Combat();
-void pickupItem(Player p, char map[][SIZE], string collect);
+void pickupItem(Player& p, char map[][SIZE], string collect);
 int main() {
 	char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
@@ -250,7 +250,7 @@ void Combat() {
 
 }
 
-void pickupItem(Player p, char map[][SIZE], string collect) {
+void pickupItem(Player& p, char map[][SIZE], string collect) {
 	if (map[p.file][p.column] == 'P' || map[p.file][p.column] == 'B' || map[p.file][p.column] == 'S' || map[p.file][p.column] == 'K') {
 		if (collect == "Potion") {
 			p.inventory.push_back(POTION);
