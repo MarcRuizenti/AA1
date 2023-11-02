@@ -161,8 +161,8 @@ void Combat() {
 
 }
 
-void PickupItem() {
-
+void PickupItem(Player p, char map[][SIZE], string cllect) {
+	
 }
 
 void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
