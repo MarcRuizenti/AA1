@@ -63,9 +63,6 @@ int main() {
 		else if (currentScene == COMBAT) {
 			Combat();
 		}
-		else if (currentScene == PICKPITEM) {
-			PickupItem();
-		}
 		else {
 			return 0;
 		}
