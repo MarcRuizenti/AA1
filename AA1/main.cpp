@@ -33,8 +33,8 @@ char map[SIZE][SIZE]{
 };
 
 void help();
-void go(string direc, Player& player);
-void whatwillyoudo(Player& player);
+void go(string direc, Player& player, bool n, bool w, bool e, bool s);
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s);
 void status(Player& player);
 void Intro(Player& player);
 void Navigation(Player& player);
@@ -154,7 +154,7 @@ void Navigation(Player& player) {
 	}
 	cout << endl;
 	
-	whatwillyoudo(player);
+	whatwillyoudo(player, north, west, east, south);
 }
 
 void Combat() {
@@ -165,8 +165,8 @@ void PickupItem() {
 
 }
 
-void go(string direc, Player& player) {
-	if (direc == "east") {
+void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
+	if (direc == "east" ) {
 		player.column += 1;
 	}
 	else if (direc == "west") {
@@ -180,7 +180,7 @@ void go(string direc, Player& player) {
 	}
 }
 
-void whatwillyoudo(Player& player) {
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
@@ -197,7 +197,7 @@ void whatwillyoudo(Player& player) {
 	
 
 		if (comando == "go")
-			go(direction, player);
+			go(direction, player, n, w ,e ,s);
 		else if (comando == "help")
 			help();
 		else if (comando == "status")
