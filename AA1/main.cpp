@@ -75,12 +75,13 @@ int main() {
 void help() {
 	cout << "------- COMAND HELP -------" << endl;
 	cout << "go + [NORTH | SOUTH | EAST | WEST]" << endl;
-	cout << "    " << "El programa debe controlar que vayamos a zonas que sean 'navegables'.Si hay un '#', no lo son." << endl;
+	cout << "    " << "The program has control that we went to zones that was 'navigation'. If has an '#', they are not." << endl;
 	cout << "pick + [potion | sword | bomb | key]" << endl;
-	cout << "    " << "Recoge el objeto que hay en la zona de mapa actual y la añade al inventario del jugador." << endl;
-	cout << "    " << "Ten en cuenta que si recojo un objeto, ya no me debe informar de que ese objeto está en esa posición del mapa." << endl;
+	cout << "    " << "Collect an object that is in actual map zone and adds it to the player inventory." << endl;
 	cout << "use + [potion | sword | bomb | key]" << endl;
 	cout << " " << endl;
+	cout << "ststus" << endl;
+	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
 }
 
 void Intro(Player& player) {
