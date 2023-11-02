@@ -5,8 +5,10 @@
 #include <vector>
 #include <sstream>
 
+enum Scene { INTRO, NAVIGATION, COMBAT, PICKPITEM };
+
 #define SIZE 10
-int currentScene = 0;
+int currentScene = INTRO;
 using namespace std;
 
 enum Items { POTION, BOMB, SWORD, KEY };
@@ -52,16 +54,16 @@ int main() {
 	};
 
 	while (true) {
-		if (currentScene == 0) {
+		if (currentScene == INTRO) {
 			Intro(player);
 		}
-		else if (currentScene == 1) {
+		else if (currentScene == NAVIGATION) {
 			Navigation(player);
 		}
-		else if (currentScene == 2) {
+		else if (currentScene == COMBAT) {
 			Combat();
 		}
-		else if (currentScene == 3) {
+		else if (currentScene == PICKPITEM) {
 			PickupItem();
 		}
 		else {
