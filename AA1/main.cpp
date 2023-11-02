@@ -177,8 +177,10 @@ void Combat() {
 
 }
 
-void PickupItem(Player p, char map[][SIZE], string cllect) {
-	
+void PickupItem(Player p, char map[][SIZE], string collect) {
+	if (map[p.file][p.column] == 'P' || map[p.file][p.column] == 'B' || map[p.file][p.column] == 'S' || map[p.file][p.column] == 'K') {
+		if ()
+	}
 }
 
 void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
