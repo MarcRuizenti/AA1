@@ -21,10 +21,20 @@ struct Player {
 	vector<Items> inventory;
 };
 
-char map[SIZE][SIZE]{
+
+void help();
+void go(string direc, Player& player, bool n, bool w, bool e, bool s);
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s);
+void status(Player& player);
+void Intro(Player& player);
+void Navigation(Player& player, char map[SIZE][SIZE]); 
+void Combat();
+void PickupItem();
+int main() {
+	char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
-		{'#','@','.','P','.','P','.','.','.','#'},
-		{'#','#','#','G','#','S','#','#','M','#'},
+		{'#','.','.','P','.','P','.','.','.','#'},
+		{'#','#','#','G','#','S','#','#','#','#'},
 		{'#','.','.','.','#','#','#','#','#','#'},
 		{'#','.','T','.','#','J','#','.','B','#'},
 		{'#','.','.','.','#','L','#','.','.','#'},
@@ -32,18 +42,8 @@ char map[SIZE][SIZE]{
 		{'#','P','G','#','#','O','#','.','.','#'},
 		{'#','.','.','.','.','K','.','.','B','#'},
 		{'#','#','#','#','#','#','#','#','#','#'},
-};
+	};
 
-void help();
-void go(string direc, Player& player, bool n, bool w, bool e, bool s);
-void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s);
-void status(Player& player);
-void Intro(Player& player);
-void Navigation(Player& player);
-void Combat();
-void PickupItem();
-int main() {
-	
 
 	Player player{
 		"Luis",
@@ -58,7 +58,7 @@ int main() {
 			Intro(player);
 		}
 		else if (currentScene == NAVIGATION) {
-			Navigation(player);
+			Navigation(player, map);
 		}
 		else if (currentScene == COMBAT) {
 			Combat();
@@ -133,7 +133,7 @@ void status(Player& player) {
 }
 
 
-void Navigation(Player& player) {
+void Navigation(Player& player, char map[SIZE][SIZE]) {
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
 	cout << "You can go: ";
