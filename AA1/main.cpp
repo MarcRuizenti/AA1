@@ -168,8 +168,16 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "[SOUTH]";
 		}
 		cout << endl;
+
 		if (map[player.file][player.column] == 'P')
 			cout << "There is a Potion on the floor" << endl;
+		else if (map[player.file][player.column] == 'B')
+			cout << "There is a Bomb on the floor" << endl;
+		else if (map[player.file][player.column] == 'K')
+			cout << "There is a Key on the floor" << endl;
+		else if (map[player.file][player.column] == 'S')
+			cout << "There is a Sword on the floor" << endl;
+
 
 		whatwillyoudo(player, north, west, east, south, map);
 	}
