@@ -208,20 +208,35 @@ void Navigation(Player& player, char map[][SIZE]) {
 		else if (map[player.file + 1][player.column] == 'T')
 			cout << "There is a Troll at south" << endl;
 
-		if (map[player.file + 1][player.column] == 'P')
-			cout << "There is a Potion at south" << endl;
-		else if (map[player.file + 1][player.column] == 'B')
-			cout << "There is a Bomb at south" << endl;
-		else if (map[player.file + 1][player.column] == 'K')
-			cout << "There is a Key at south" << endl;
-		else if (map[player.file + 1][player.column] == 'S')
-			cout << "There is a Sword at south" << endl;
-		else if (map[player.file + 1][player.column] == 'G')
-			cout << "There is a Goblin at south" << endl;
-		else if (map[player.file + 1][player.column] == 'O')
-			cout << "There is a Orc at south" << endl;
-		else if (map[player.file + 1][player.column] == 'T')
-			cout << "There is a Troll at south" << endl;
+		if (map[player.file][player.column - 1] == 'P')
+			cout << "There is a Potion at west" << endl;
+		else if (map[player.file][player.column - 1] == 'B')
+			cout << "There is a Bomb at west" << endl;
+		else if (map[player.file][player.column - 1] == 'K')
+			cout << "There is a Key at west" << endl;
+		else if (map[player.file][player.column - 1] == 'S')
+			cout << "There is a Sword at west" << endl;
+		else if (map[player.file][player.column - 1] == 'G')
+			cout << "There is a Goblin at west" << endl;
+		else if (map[player.file][player.column - 1] == 'O')
+			cout << "There is a Orc at west" << endl;
+		else if (map[player.file][player.column - 1] == 'T')
+			cout << "There is a Troll at west" << endl;
+
+		if (map[player.file][player.column + 1] == 'P')
+			cout << "There is a Potion at east" << endl;
+		else if (map[player.file][player.column + 1] == 'B')
+			cout << "There is a Bomb at east" << endl;
+		else if (map[player.file][player.column + 1] == 'K')
+			cout << "There is a Key at east" << endl;
+		else if (map[player.file][player.column + 1] == 'S')
+			cout << "There is a Sword at east" << endl;
+		else if (map[player.file][player.column + 1] == 'G')
+			cout << "There is a Goblin at east" << endl;
+		else if (map[player.file][player.column + 1] == 'O')
+			cout << "There is a Orc at east" << endl;
+		else if (map[player.file][player.column + 1] == 'T')
+			cout << "There is a Troll at east" << endl;
 
 		whatwillyoudo(player, north, west, east, south, map);
 	}
