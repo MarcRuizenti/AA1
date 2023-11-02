@@ -179,21 +179,21 @@ void Combat() {
 
 void PickupItem(Player p, char map[][SIZE], string collect) {
 	if (map[p.file][p.column] == 'P' || map[p.file][p.column] == 'B' || map[p.file][p.column] == 'S' || map[p.file][p.column] == 'K') {
-		if (map) {
-
+		if (collect == "Potion") {
+			p.inventory.push_back(POTION);
 		}
-		else if (map) {
-
+		else if (collect == "Bomb") {
+			p.inventory.push_back(BOMB);
 		}
-		else if (map) {
-
+		else if (collect == "Sword") {
+			p.inventory.push_back(SWORD);
 		}
-		else if (map) {
-
+		else if (collect == "Key") {
+			p.inventory.push_back(KEY);
 		}
-		else {
-			cout << "There is no item" << endl;
-		}
+	}
+	else {
+		cout << "There is no item" << endl;
 	}
 }
 
