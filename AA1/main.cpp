@@ -131,9 +131,8 @@ void status(Player& player) {
 
 
 void Navigation(Player& player, char map[][SIZE]) {
-	if (map[player.file][player.column] == 'G' || map[player.file][player.column] == 'O' || map[player.file][player.column] == 'T') {
+	if (map[player.file][player.column] != 'G' || map[player.file][player.column] != 'O' || map[player.file][player.column] != 'T') {
 		cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
-		cout << endl;
 
 		if (player.file < 5 && player.column < 6)
 			cout << "The penchant detects an evil aura at southeast" << endl;
@@ -143,7 +142,14 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "The penchant detects an evil aura at northwest" << endl;
 		else if (player.file < 5 && player.column > 6)
 			cout << "The penchant detects an evil aura at southwest" << endl;
-		
+		else if (player.file < 5 && player.column == 6)
+			cout << "The penchant detects an evil aura at south" << endl;
+		else if (player.file > 5 && player.column == 6)
+			cout << "The penchant detects an evil aura at north" << endl;
+		else if (player.file == 5 && player.column < 6)
+			cout << "The penchant detects an evil aura at east" << endl;
+		else if (player.file < 5 && player.column == 6)
+			cout << "The penchant detects an evil aura at west" << endl;
 		cout << "You can go: ";
 		bool north = map[player.file - 1][player.column] != '#';
 		bool west = map[player.file][player.column - 1] != '#';
