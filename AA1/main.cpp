@@ -9,35 +9,17 @@
 int currentScene = 0;
 using namespace std;
 
+enum Items { POTION, BOMB, SWORD, KEY };
+struct Player {
+	string name;
+	int file;
+	int column;
+	int maxHealth;
+	int health;
+	vector<Items> inventory;
+};
 
-void help();
-void go();
-void whatwillyoudo();
-void status();
-void Intro();
-void Navigation();
-void Combat();
-void PickupItem();
-int main() {
-	enum Items { POTION, BOMB, SWORD, KEY };
-	struct Player {
-		string name;
-		int file;
-		int column;
-		int maxHealth;
-		int health;
-		vector<Items> inventory;
-	};
-
-	Player player{
-		"Luis",
-		1,
-		1,
-		100,
-		100
-	};
-
-	char map[SIZE][SIZE]{
+char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
 		{'#','@','.','P','.','P','.','.','.','#'},
 		{'#','#','#','G','#','S','#','#','M','#'},
@@ -48,14 +30,33 @@ int main() {
 		{'#','P','G','#','#','O','#','.','.','#'},
 		{'#','.','.','.','.','K','.','.','B','#'},
 		{'#','#','#','#','#','#','#','#','#','#'},
+};
+
+void help();
+void go();
+void whatwillyoudo(Player player);
+void status(Player player);
+void Intro(Player player);
+void Navigation(Player player);
+void Combat();
+void PickupItem();
+int main() {
+	
+
+	Player player{
+		"Luis",
+		1,
+		1,
+		100,
+		100
 	};
 
 	while (true) {
 		if (currentScene == 0) {
-			Intro();
+			Intro(player);
 		}
 		else if (currentScene == 1) {
-			Navigation();
+			Navigation(player);
 		}
 		else if (currentScene == 2) {
 			Combat();
@@ -80,7 +81,7 @@ void help() {
 	cout << " " << endl;
 }
 
-void Intro() {
+void Intro(Player player) {
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
 	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
@@ -97,7 +98,7 @@ void Intro() {
 	currentScene = 1;
 }
 
-void status() {
+void status(Player player) {
 	int potions = 0;
 	int bomb = 0;
 	int sword = 0;
@@ -129,7 +130,7 @@ void status() {
 }
 
 
-void Navigation() {
+void Navigation(Player player) {
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
 	cout << "You can go: ";
@@ -153,7 +154,7 @@ void Navigation() {
 	}
 	cout << endl;
 	
-	whatwillyoudo();
+	whatwillyoudo(player);
 }
 
 void Combat() {
@@ -179,7 +180,7 @@ void go(string direc) {
 	}
 }
 
-void whatwillyoudo() {
+void whatwillyoudo(Player player) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
@@ -200,7 +201,7 @@ void whatwillyoudo() {
 		else if (comando == "help")
 			help();
 		else if (comando == "status")
-			status();
+			status(player);
 	}
 
 }
