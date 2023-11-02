@@ -33,11 +33,11 @@ char map[SIZE][SIZE]{
 };
 
 void help();
-void go();
-void whatwillyoudo(Player player);
-void status(Player player);
-void Intro(Player player);
-void Navigation(Player player);
+void go(string direc, Player& player);
+void whatwillyoudo(Player& player);
+void status(Player& player);
+void Intro(Player& player);
+void Navigation(Player& player);
 void Combat();
 void PickupItem();
 int main() {
@@ -81,7 +81,7 @@ void help() {
 	cout << " " << endl;
 }
 
-void Intro(Player player) {
+void Intro(Player& player) {
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
 	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
@@ -98,7 +98,7 @@ void Intro(Player player) {
 	currentScene = 1;
 }
 
-void status(Player player) {
+void status(Player& player) {
 	int potions = 0;
 	int bomb = 0;
 	int sword = 0;
@@ -130,7 +130,7 @@ void status(Player player) {
 }
 
 
-void Navigation(Player player) {
+void Navigation(Player& player) {
 	cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
 	
 	cout << "You can go: ";
@@ -165,7 +165,7 @@ void PickupItem() {
 
 }
 
-void go(string direc) {
+void go(string direc, Player& player) {
 	if (direc == "east") {
 		player.column += 1;
 	}
@@ -180,7 +180,7 @@ void go(string direc) {
 	}
 }
 
-void whatwillyoudo(Player player) {
+void whatwillyoudo(Player& player) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
@@ -197,7 +197,7 @@ void whatwillyoudo(Player player) {
 	
 
 		if (comando == "go")
-			go(direction);
+			go(direction, player);
 		else if (comando == "help")
 			help();
 		else if (comando == "status")
