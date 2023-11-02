@@ -21,7 +21,6 @@ struct Player {
 	vector<Items> inventory;
 };
 
-
 void help();
 void go(string direc, Player& player, bool n, bool w, bool e, bool s);
 void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s);
@@ -129,7 +128,6 @@ void status(Player& player) {
 	cout << " " << endl;
 }
 
-
 void Navigation(Player& player, char map[][SIZE]) {
 	if (map[player.file][player.column] != 'G' || map[player.file][player.column] != 'O' || map[player.file][player.column] != 'T') {
 		cout << "[" << player.name << "]" << " at " << "[" << player.file << ", " << player.column << "]" << endl;
@@ -187,15 +185,19 @@ void PickupItem(Player p, char map[][SIZE], string collect) {
 	if (map[p.file][p.column] == 'P' || map[p.file][p.column] == 'B' || map[p.file][p.column] == 'S' || map[p.file][p.column] == 'K') {
 		if (collect == "Potion") {
 			p.inventory.push_back(POTION);
+			map[p.file][p.column] = '.';
 		}
 		else if (collect == "Bomb") {
 			p.inventory.push_back(BOMB);
+			map[p.file][p.column] = '.';
 		}
 		else if (collect == "Sword") {
 			p.inventory.push_back(SWORD);
+			map[p.file][p.column] = '.';
 		}
 		else if (collect == "Key") {
 			p.inventory.push_back(KEY);
+			map[p.file][p.column] = '.';
 		}
 	}
 	else {
