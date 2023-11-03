@@ -256,6 +256,10 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	if (m[p.file][p.column] == 'G')
 		razeEnemigo = GOBLIN;
+	if (m[p.file][p.column] == 'O')
+		razeEnemigo = ORC;
+	if (m[p.file][p.column] == 'T')
+		razeEnemigo = TROLL;
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
