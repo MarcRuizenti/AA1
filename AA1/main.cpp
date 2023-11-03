@@ -21,12 +21,21 @@ struct Player {
 	vector<Items> inventory;
 };
 
+enum Raze { GOBLIN, ORC, TROLL };
+struct Enemigos {
+	Raze raze;
+	string name;
+	int health;
+	int maxHealth;
+	int damage;
+};
+
 void help();
 void go(string direc, Player& player, bool n, bool w, bool e, bool s);
 void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]);
 void status(Player& player);
 void Intro(Player& player);
-void Navigation(Player& player, char map[][SIZE]); 
+void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
 void pickupItem(Player& p, char map[][SIZE], string collect);
 void whatwillyoudoconbat(Player& p);
@@ -104,37 +113,6 @@ void Intro(Player& player) {
 	cin.ignore();
 	cout << " " << endl;
 	currentScene = NAVIGATION;
-}
-
-void status(Player& player) {
-	int potions = 0;
-	int bomb = 0;
-	int sword = 0;
-	int key = 0;
-
-	cout << "------------ PLAYER ------------" << endl;
-	cout << player.name << endl;
-	cout << "--------------------------------" << endl;
-	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
-	cout << "-----------INVENTORY------------" << endl;
-	if (player.inventory.size() != 0) {
-		for (int i = 0; i < player.inventory.size(); i++) {
-			if (player.inventory[i] == POTION)
-				potions++;
-			else if (player.inventory[i] == BOMB)
-				bomb++;
-			else if (player.inventory[i] == SWORD)
-				sword++;
-			else if (player.inventory[i] == KEY)
-				key++;
-		}
-	}
-	cout << "Potions: " << potions << endl;
-	cout << "Bomb: " << bomb << endl;
-	cout << "Sword: " << sword << endl;
-	cout << "Key: " << key << endl;
-	cout << "--------------------------------" << endl;
-	cout << " " << endl;
 }
 
 void Navigation(Player& player, char map[][SIZE]) {
@@ -255,21 +233,15 @@ void Navigation(Player& player, char map[][SIZE]) {
 }
 
 void Combat(Player& p, char m[][SIZE]) {
-	enum raze{GOBLIN, ORC, TROLL};
-	struct Enemigos {
-		raze raze;
-		string name;
-		int health;
-		int maxHealth;
-		int damage;
-	};
 
-	raze razeEnemigo;
+
+
+	Raze razeEnemigo;
 
 	Enemigos enemigo[3]{
-		{GOBLIN, "Goblin"},
-		{ORC, "Orco"},
-		{TROLL, "Troll"}
+		{GOBLIN, "Goblin", 30, 30, 5},
+		{ORC, "Orco", 60, 60, 10},
+		{TROLL, "Troll", 90, 90, 15 }
 	};
 
 	Enemigos enemigoActual;
@@ -288,12 +260,12 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	cout << enemigoActual.name << " attacks!" << endl;
 	cout << enemigoActual.name << " use Slash!" << endl;
-	cout << p.name << " recived 10 damage" << endl;
+	cout << p.name << " recived " << enemigoActual.damage * 2 << " damage" << endl;
 
-	p.health -= 10;
+	p.health -= enemigoActual.damage * 2;
 
 	cout << "-------- Entrado a la batalla --------" << endl << endl;
-	
+
 	while (true) {
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
 		cout << "VS" << endl;
@@ -301,14 +273,14 @@ void Combat(Player& p, char m[][SIZE]) {
 
 		whatwillyoudoconbat(p);
 	}
-	
+
 
 
 
 
 	m[p.file][p.column] = '.';
 	currentScene = NAVIGATION;
-	
+
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
@@ -350,11 +322,42 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 	}
 }
 
-void use(Player& p){
+void use(Player& p) {
 
 }
 
-void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s,char m[][SIZE]) {
+void status(Player& player) {
+	int potions = 0;
+	int bomb = 0;
+	int sword = 0;
+	int key = 0;
+
+	cout << "------------ PLAYER ------------" << endl;
+	cout << player.name << endl;
+	cout << "--------------------------------" << endl;
+	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
+	cout << "-----------INVENTORY------------" << endl;
+	if (player.inventory.size() != 0) {
+		for (int i = 0; i < player.inventory.size(); i++) {
+			if (player.inventory[i] == POTION)
+				potions++;
+			else if (player.inventory[i] == BOMB)
+				bomb++;
+			else if (player.inventory[i] == SWORD)
+				sword++;
+			else if (player.inventory[i] == KEY)
+				key++;
+		}
+	}
+	cout << "Potions: " << potions << endl;
+	cout << "Bomb: " << bomb << endl;
+	cout << "Sword: " << sword << endl;
+	cout << "Key: " << key << endl;
+	cout << "--------------------------------" << endl;
+	cout << " " << endl;
+}
+
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
