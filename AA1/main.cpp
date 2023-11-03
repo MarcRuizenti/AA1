@@ -146,7 +146,7 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "The penchant detects an evil aura at north" << endl;
 		else if (player.file == 5 && player.column < 6)
 			cout << "The penchant detects an evil aura at east" << endl;
-		else if (player.file < 5 && player.column == 6)
+		else if (player.file == 5 && player.column > 6)
 			cout << "The penchant detects an evil aura at west" << endl;
 
 		cout << "You can go: ";
