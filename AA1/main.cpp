@@ -254,12 +254,30 @@ void Combat(Player& p, char m[][SIZE]) {
 	};
 	raze razeEnemigo;
 
+	Enemigos enemigo[3];
+
+	Enemigos enemigo[1]{
+		{GOBLIN}
+	};
+	Enemigos enemigo[2]{
+		{ORC}
+	};
+	Enemigos enemigo[3]{
+		{TROLL}
+	};
+
 	if (m[p.file][p.column] == 'G')
 		razeEnemigo = GOBLIN;
-	if (m[p.file][p.column] == 'O')
+	else if (m[p.file][p.column] == 'O')
 		razeEnemigo = ORC;
-	if (m[p.file][p.column] == 'T')
+	else if (m[p.file][p.column] == 'T')
 		razeEnemigo = TROLL;
+
+	for (int i = 0; i < 3; i++) {
+		if (razeEnemigo == enemigo[i].raze)
+			Enemigos enemigoActual = enemigo[i];
+	}
+
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
