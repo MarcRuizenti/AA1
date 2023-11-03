@@ -29,6 +29,8 @@ void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]); 
 void Combat(Player& p, char m[][SIZE]);
 void pickupItem(Player& p, char map[][SIZE], string collect);
+void whatwillyoudoconbat(Player& p);
+void use(Player& p);
 int main() {
 	char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
@@ -340,6 +342,10 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 	}
 }
 
+void use(Player& p){
+
+}
+
 void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s,char m[][SIZE]) {
 	string input;
 	cout << "What will you do?: ";
@@ -363,6 +369,33 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s,char m[][SIZE]
 			status(player);
 		else if (comando == "pick")
 			pickupItem(player, m, direction);
+	}
+
+}
+
+void whatwillyoudoconbat(Player& p) {
+
+	string input;
+	cout << "What will you do?: ";
+	getline(cin, input);
+	cout << " " << endl;
+
+	if (input.empty()) {
+		cout << "You didn't enter anything." << endl;
+	}
+	else {
+		// Procesa la entrada según tus necesidades
+		string comando, direction;
+		istringstream iss(input);
+		iss >> comando >> direction;
+
+
+		if (comando == "help")
+			help();
+		else if (comando == "status")
+			status(p);
+		else if (comando == "use")
+			use(p);
 	}
 
 }
