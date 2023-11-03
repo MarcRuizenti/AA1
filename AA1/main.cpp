@@ -252,16 +252,19 @@ void Combat(Player& p, char m[][SIZE]) {
 		string name;
 		int health;
 		int maxHealth;
+		int damage;
 	};
+
 	raze razeEnemigo;
 
 	Enemigos enemigo[3]{
-		{{GOBLIN}},
-		{{ORC}},
-		{{TROLL}}
+		{GOBLIN, "Goblin"},
+		{ORC, "Orco"},
+		{TROLL, "Troll"}
 	};
 
 	Enemigos enemigoActual;
+
 	if (m[p.file][p.column] == 'G')
 		razeEnemigo = GOBLIN;
 	else if (m[p.file][p.column] == 'O')
@@ -274,7 +277,24 @@ void Combat(Player& p, char m[][SIZE]) {
 			enemigoActual = enemigo[i];
 	}
 
-	cout << "Un " << enemigoActual.name << " te a atacado y te a echo 10hp" << endl;
+	cout << enemigoActual.name << " attacks!" << endl;
+	cout << enemigoActual.name << " use Slash!" << endl;
+	cout << p.name << " recived 10 damage" << endl;
+
+	p.health -= 10;
+
+	cout << "-------- Entrado a la batalla --------" << endl << endl;
+	
+	while (true) {
+		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
+		cout << "VS" << endl;
+		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
+		whatwillyoudo();
+	}
+	
+
+
+
 
 	m[p.file][p.column] = '.';
 	currentScene = NAVIGATION;
