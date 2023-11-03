@@ -249,6 +249,7 @@ void Combat(Player& p, char m[][SIZE]) {
 	enum raze{GOBLIN, ORC, TROLL};
 	struct Enemigos {
 		raze raze;
+		string name;
 		int health;
 		int maxHealth;
 	};
@@ -260,8 +261,7 @@ void Combat(Player& p, char m[][SIZE]) {
 		{{TROLL}}
 	};
 
-
-
+	Enemigos enemigoActual;
 	if (m[p.file][p.column] == 'G')
 		razeEnemigo = GOBLIN;
 	else if (m[p.file][p.column] == 'O')
@@ -271,9 +271,12 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	for (int i = 0; i < 3; i++) {
 		if (razeEnemigo == enemigo[i].raze)
-			Enemigos enemigoActual = enemigo[i];
+			enemigoActual = enemigo[i];
 	}
 
+	cout << "Un " << enemigoActual.name << " te a atacado y te a echo 10hp" << endl;
+
+	currentScene = NAVIGATION;
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
