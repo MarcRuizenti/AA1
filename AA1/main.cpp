@@ -289,7 +289,7 @@ void Combat(Player& p, char m[][SIZE]) {
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
 		cout << "VS" << endl;
 		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
-		whatwillyoudo();
+
 	}
 	
 
