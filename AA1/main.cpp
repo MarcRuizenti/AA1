@@ -71,7 +71,7 @@ int main() {
 }
 
 void help() {
-	cout << "------- COMAND HELP -------" << endl;
+	cout << "------- COMAND -------" << endl;
 	cout << "go + [NORTH | SOUTH | EAST | WEST]" << endl;
 	cout << "    " << "The program has control that we went to zones that was 'navigation'. If has an '#', they are not." << endl;
 	cout << "pick + [potion | sword | bomb | key]" << endl;
@@ -80,6 +80,13 @@ void help() {
 	cout << " " << endl;
 	cout << "ststus" << endl;
 	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
+	cout << " " << endl;
+	cout << "------- COMAND IN COMBAT -------" << endl;
+	cout << "ststus" << endl;
+	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
+	cout << " " << endl;
+	cout << "use + [potion | sword | bomb | key]" << endl;
+	cout << " " << endl;
 }
 
 void Intro(Player& player) {
