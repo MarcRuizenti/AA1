@@ -27,7 +27,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 void status(Player& player);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]); 
-void Combat();
+void Combat(Player& p, char m[][SIZE]);
 void pickupItem(Player& p, char map[][SIZE], string collect);
 int main() {
 	char map[SIZE][SIZE]{
@@ -60,7 +60,7 @@ int main() {
 			Navigation(player, map);
 		}
 		else if (currentScene == COMBAT) {
-			Combat();
+			Combat(player, map);
 		}
 		else {
 			return 0;
@@ -245,8 +245,17 @@ void Navigation(Player& player, char map[][SIZE]) {
 	}
 }
 
-void Combat() {
+void Combat(Player& p, char m[][SIZE]) {
+	enum raze{GOBLIN, ORC, TROLL};
+	struct Enemigos {
+		raze raze;
+		int health;
+		int maxHealth;
+	};
+	raze razeEnemigo;
 
+	if (m[p.file][p.column] == 'G')
+		razeEnemigo = GOBLIN;
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
