@@ -254,17 +254,13 @@ void Combat(Player& p, char m[][SIZE]) {
 	};
 	raze razeEnemigo;
 
-	Enemigos enemigo[3];
-
-	Enemigos enemigo[1]{
-		{GOBLIN}
-	};
-	Enemigos enemigo[2]{
-		{ORC}
-	};
 	Enemigos enemigo[3]{
-		{TROLL}
+		{{GOBLIN}},
+		{{ORC}},
+		{{TROLL}}
 	};
+
+
 
 	if (m[p.file][p.column] == 'G')
 		razeEnemigo = GOBLIN;
