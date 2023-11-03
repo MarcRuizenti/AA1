@@ -276,7 +276,9 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	cout << "Un " << enemigoActual.name << " te a atacado y te a echo 10hp" << endl;
 
+	m[p.file][p.column] = '.';
 	currentScene = NAVIGATION;
+	
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
