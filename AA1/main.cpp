@@ -324,7 +324,7 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 
 void use(Player& p, string ob) {
 	if (currentScene == COMBAT) {
-		
+		KEY != 1;
 	}
 }
 
