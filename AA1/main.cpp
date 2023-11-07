@@ -380,6 +380,8 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			status(player);
 		else if (comando == "pick")
 			pickupItem(player, m, direction);
+		else if (comando == "use")
+			use(player);
 	}
 
 }
