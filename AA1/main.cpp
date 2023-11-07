@@ -308,6 +308,8 @@ void pickupItem(Player& p, char map[][SIZE], string collect) {
 }
 
 void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
+	
+	
 	if (direc == "east" && e) {
 		player.column += 1;
 	}
@@ -323,8 +325,15 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 }
 
 void use(Player& p, string ob) {
-	if (currentScene == COMBAT) {
-		KEY != 1;
+	if (ob == "Potion") {
+		p.health += 40;
+		cout << "You recovere 40 hp, now you have: " << p.health << "hp" << endl;
+	}
+	else if (ob == "Bomb") {
+
+	}
+	else if (ob == "Sword") {
+
 	}
 }
 
