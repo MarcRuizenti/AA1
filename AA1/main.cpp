@@ -365,8 +365,14 @@ void status(Player& player) {
 
 	cout << "Potions: " << player.potion << endl;
 	cout << "Bomb: " << player.bomb << endl;
-	cout << "Sword: " << player.sword << endl;
-	cout << "Key: " << player.key << endl;
+	if (player.sword == true)
+		cout << "Sword: Yes" << endl;
+	else 
+		cout << "Sword: No" << endl;
+	if (player.key == true)
+		cout << "Key: Yes" << endl;
+	else
+		cout << "Key: No" << endl;
 	cout << "--------------------------------" << endl;
 	cout << " " << endl;
 }
