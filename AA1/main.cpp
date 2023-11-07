@@ -38,7 +38,7 @@ void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
 void pickupItem(Player& p, char map[][SIZE], string collect);
-void whatwillyoudoconbat(Player& p);
+void whatwillyoudocombat(Player& p);
 void use(Player& p, string ob);
 int main() {
 	char map[SIZE][SIZE]{
@@ -271,7 +271,7 @@ void Combat(Player& p, char m[][SIZE]) {
 		cout << "VS" << endl;
 		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
 
-		whatwillyoudoconbat(p);
+		whatwillyoudocombat(p);
 	}
 
 
@@ -383,12 +383,12 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		else if (comando == "pick")
 			pickupItem(player, m, direction);
 		else if (comando == "use")
-			use(player);
+			use(player, direction);
 	}
 
 }
 
-void whatwillyoudoconbat(Player& p) {
+void whatwillyoudocombat(Player& p) {
 
 	string input;
 	cout << "What will you do?: ";
