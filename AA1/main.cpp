@@ -11,14 +11,17 @@ enum Scene { INTRO, NAVIGATION, COMBAT, PICKPITEM };
 int currentScene = INTRO;
 using namespace std;
 
-enum Items { POTION, BOMB, SWORD, KEY };
+
 struct Player {
 	string name;
 	int file;
 	int column;
 	int maxHealth;
 	int health;
-	vector<Items> inventory;
+	int potion;
+	int bomb;
+	bool sword;
+	bool key;
 };
 
 enum Raze { GOBLIN, ORC, TROLL };
@@ -60,7 +63,11 @@ int main() {
 		1,
 		1,
 		100,
-		100
+		100,
+		0,
+		0,
+		false,
+		false
 	};
 
 	while (true) {
@@ -286,20 +293,30 @@ void Combat(Player& p, char m[][SIZE]) {
 void pickupItem(Player& p, char map[][SIZE], string collect) {
 	if (map[p.file][p.column] == 'P' || map[p.file][p.column] == 'B' || map[p.file][p.column] == 'S' || map[p.file][p.column] == 'K') {
 		if (collect == "Potion") {
-			p.inventory.push_back(POTION);
+			p.potion += 1;
 			map[p.file][p.column] = '.';
 		}
 		else if (collect == "Bomb") {
-			p.inventory.push_back(BOMB);
+			p.bomb += 1;
 			map[p.file][p.column] = '.';
 		}
 		else if (collect == "Sword") {
-			p.inventory.push_back(SWORD);
-			map[p.file][p.column] = '.';
+			if (p.sword == false) {
+				p.sword = true;
+				map[p.file][p.column] = '.';
+			}
+			else {
+				cout << "You have it" << endl;
+			}
 		}
 		else if (collect == "Key") {
-			p.inventory.push_back(KEY);
-			map[p.file][p.column] = '.';
+			if (p.key == false) {
+				p.key = true;
+				map[p.file][p.column] = '.';
+			}
+			else {
+				cout << "You have it" << endl;
+			}
 		}
 	}
 	else {
@@ -338,32 +355,18 @@ void use(Player& p, string ob) {
 }
 
 void status(Player& player) {
-	int potions = 0;
-	int bomb = 0;
-	int sword = 0;
-	int key = 0;
+	
 
 	cout << "------------ PLAYER ------------" << endl;
 	cout << player.name << endl;
 	cout << "--------------------------------" << endl;
 	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
 	cout << "-----------INVENTORY------------" << endl;
-	if (player.inventory.size() != 0) {
-		for (int i = 0; i < player.inventory.size(); i++) {
-			if (player.inventory[i] == POTION)
-				potions++;
-			else if (player.inventory[i] == BOMB)
-				bomb++;
-			else if (player.inventory[i] == SWORD)
-				sword++;
-			else if (player.inventory[i] == KEY)
-				key++;
-		}
-	}
-	cout << "Potions: " << potions << endl;
-	cout << "Bomb: " << bomb << endl;
-	cout << "Sword: " << sword << endl;
-	cout << "Key: " << key << endl;
+
+	cout << "Potions: " << player.potion << endl;
+	cout << "Bomb: " << player.bomb << endl;
+	cout << "Sword: " << player.sword << endl;
+	cout << "Key: " << player.key << endl;
 	cout << "--------------------------------" << endl;
 	cout << " " << endl;
 }
