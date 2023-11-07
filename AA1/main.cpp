@@ -39,7 +39,7 @@ void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
 void pickupItem(Player& p, char map[][SIZE], string collect);
 void whatwillyoudoconbat(Player& p);
-void use(Player& p);
+void use(Player& p, string ob);
 int main() {
 	char map[SIZE][SIZE]{
 		{'#','#','#','#','#','#','#','#','#','#'},
@@ -322,8 +322,10 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 	}
 }
 
-void use(Player& p) {
-
+void use(Player& p, string ob) {
+	if (currentScene == COMBAT) {
+		
+	}
 }
 
 void status(Player& player) {
@@ -408,7 +410,7 @@ void whatwillyoudoconbat(Player& p) {
 		else if (comando == "status")
 			status(p);
 		else if (comando == "use")
-			use(p);
+			use(p, direction);
 	}
 
 }
