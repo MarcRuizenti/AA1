@@ -339,6 +339,8 @@ void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 	else if (direc == "north" && n) {
 		player.file -= 1;
 	}
+	else
+		cout << "You can't move in this direction" << endl;
 }
 
 void use(Player& p, string ob) {
