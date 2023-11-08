@@ -375,6 +375,7 @@ void status(Player& player) {
 		cout << "Key: Yes" << endl;
 	else
 		cout << "Key: No" << endl;
+
 	cout << "--------------------------------" << endl;
 	cout << " " << endl;
 }
