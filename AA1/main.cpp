@@ -123,6 +123,8 @@ void Intro(Player& player) {
 }
 
 void Navigation(Player& player, char map[][SIZE]) {
+	system("cls");
+
 	if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
 		cout << "[" << player.name << "]" << " at " << "[" << player.X << ", " << player.Y << "]" << endl;
 
