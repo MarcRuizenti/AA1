@@ -94,11 +94,11 @@ void help() {
 	cout << "    " << "Collect an object that is in actual map zone and adds it to the player inventory." << endl;
 	cout << "use + [potion | sword | bomb | key]" << endl;
 	cout << " " << endl;
-	cout << "ststus" << endl;
+	cout << "status" << endl;
 	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
 	cout << " " << endl;
 	cout << "------- COMAND IN COMBAT -------" << endl;
-	cout << "ststus" << endl;
+	cout << "status" << endl;
 	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
 	cout << " " << endl;
 	cout << "use + [potion | sword | bomb | key]" << endl;
