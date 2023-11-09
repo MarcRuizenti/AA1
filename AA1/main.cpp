@@ -235,6 +235,7 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "There is a Troll at east" << endl;
 
 		whatwillyoudo(player, north, west, east, south, map);
+		
 	}
 	else {
 		currentScene = COMBAT;
@@ -245,7 +246,7 @@ void Combat(Player& p, char m[][SIZE]) {
 
 
 
-	Raze razeEnemigo;
+	Raze razeEnemigo = ORC;
 
 	Enemigos enemigo[3]{
 		{GOBLIN, "Goblin", 30, 30, 5},
@@ -408,7 +409,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		else if (comando == "use")
 			use(player, direction);
 	}
-
+	system("pause");
 }
 
 void whatwillyoudocombat(Player& p) {
