@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string>
 #include <vector>
-#include <sstream>
+
 
 enum Scene { INTRO, NAVIGATION, COMBAT, PICKPITEM };
 
