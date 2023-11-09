@@ -274,7 +274,7 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	p.health -= enemigoActual.damage * 2;
 
-	cout << "-------- Entrado a la batalla --------" << endl << endl;
+	cout << "------------ En batalla ------------" << endl << endl;
 
 	while (true) {
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
@@ -352,7 +352,7 @@ void use(Player& p, string ob) {
 		cout << "You recovere 40 hp, now you have: " << p.health << "hp" << endl;
 	}
 	else if (ob == "Bomb") {
-
+		
 	}
 	else if (ob == "Sword") {
 
@@ -387,16 +387,21 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
-	cout << " " << endl;
 
 	if (input.empty()) {
 		cout << "You didn't enter anything." << endl;
 	}
 	else {
-		// Procesa la entrada según tus necesidades
 		string comando, direction;
-		istringstream iss(input);
-		iss >> comando >> direction;
+		size_t space_pos = input.find(' '); // Busca el primer espacio en la cadena
+
+		if (space_pos != string::npos) { // Si se encontró un espacio
+			comando = input.substr(0, space_pos); // Obtiene la parte antes del espacio
+			direction = input.substr(space_pos + 1); // Obtiene la parte después del espacio
+		}
+		else {
+			comando = input; // Si no se encontró un espacio, todo es el comando
+		}
 
 		if (comando == "go")
 			go(direction, player, n, w, e, s);
@@ -417,16 +422,21 @@ void whatwillyoudocombat(Player& p) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
-	cout << " " << endl;
 
 	if (input.empty()) {
 		cout << "You didn't enter anything." << endl;
 	}
 	else {
-		// Procesa la entrada según tus necesidades
 		string comando, direction;
-		istringstream iss(input);
-		iss >> comando >> direction;
+		size_t space_pos = input.find(' '); // Busca el primer espacio en la cadena
+
+		if (space_pos != string::npos) { // Si se encontró un espacio
+			comando = input.substr(0, space_pos); // Obtiene la parte antes del espacio
+			direction = input.substr(space_pos + 1); // Obtiene la parte después del espacio
+		}
+		else {
+			comando = input; // Si no se encontró un espacio, todo es el comando
+		}
 
 
 		if (comando == "help")
