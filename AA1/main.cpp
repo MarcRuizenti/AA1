@@ -87,22 +87,7 @@ int main() {
 }
 
 void help() {
-	cout << "------- COMAND -------" << endl;
-	cout << "go + [NORTH | SOUTH | EAST | WEST]" << endl;
-	cout << "    " << "The program has control that we went to zones that was 'navigation'. If has an '#', they are not." << endl;
-	cout << "pick + [potion | sword | bomb | key]" << endl;
-	cout << "    " << "Collect an object that is in actual map zone and adds it to the player inventory." << endl;
-	cout << "use + [potion | sword | bomb | key]" << endl;
-	cout << " " << endl;
-	cout << "status" << endl;
-	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
-	cout << " " << endl;
-	cout << "------- COMAND IN COMBAT -------" << endl;
-	cout << "status" << endl;
-	cout << "    " << "The status comand shows your name, health and the inventory" << endl;
-	cout << " " << endl;
-	cout << "use + [potion | sword | bomb | key]" << endl;
-	cout << " " << endl;
+	
 }
 
 void Intro(Player& player) {
@@ -327,10 +312,7 @@ void pickupItem(Player& p, char map[][SIZE], string collect) {
 	}
 }
 
-void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
-	
-	
-}
+
 
 void use(Player& p, string ob) {
 	if (ob == "Potion") {
@@ -390,7 +372,6 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		}
 
 		if (comando == "go") {
-
 			if (direction == "east" && e) {
 				player.X += 1;
 			}
@@ -406,8 +387,25 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			else
 				cout << "You can't move in this direction" << endl;
 		}
-		else if (comando == "help")
-			help();
+		else if (comando == "help") {
+			cout << "------- COMAND -------" << endl;
+			cout << "go + [NORTH | SOUTH | EAST | WEST]" << endl;
+			cout << "    " << "The program has control that we went to zones that was 'navigation'. If has an '#', they are not." << endl;
+			cout << "pick + [potion | sword | bomb | key]" << endl;
+			cout << "    " << "Collect an object that is in actual map zone and adds it to the player inventory." << endl;
+			cout << "use + [potion | sword | bomb | key]" << endl;
+			cout << " " << endl;
+			cout << "status" << endl;
+			cout << "    " << "The status comand shows your name, health and the inventory" << endl;
+			cout << " " << endl;
+			cout << "------- COMAND IN COMBAT -------" << endl;
+			cout << "status" << endl;
+			cout << "    " << "The status comand shows your name, health and the inventory" << endl;
+			cout << " " << endl;
+			cout << "use + [potion | sword | bomb | key]" << endl;
+			cout << " " << endl;
+		}
+		
 		else if (comando == "status")
 			status(player);
 		else if (comando == "pick")
