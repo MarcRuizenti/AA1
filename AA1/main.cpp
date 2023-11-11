@@ -37,6 +37,7 @@ struct Enemigos {
 void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {}, Enemigos* ene = nullptr);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
+void Combat(Player& p, char m[][SIZE]);
 
 int main() {
 	char map[SIZE][SIZE]{
@@ -232,7 +233,7 @@ void Combat(Player& p, char m[][SIZE]) {
 		{{TROLL}, {"Troll"}, {90}, {90}, {15}}
 	};
 
-	Enemigos* enemigoActual;
+	Enemigos* enemigoActual = nullptr;
 
 	if (m[p.Y][p.X] == 'G')
 		razeEnemigo = GOBLIN;
@@ -260,6 +261,10 @@ void Combat(Player& p, char m[][SIZE]) {
 		cout << "[" << enemigoActual->name << "] HP:[" << enemigoActual->health << "/" << enemigoActual->maxHealth << "]" << endl;
 
 		whatwillyoudo(p, false, false, false, false, {}, enemigoActual);
+		if (enemigoActual->health == 0)
+			return;
+		else if (p.health == 0)
+			return;
 	}
 
 
@@ -274,7 +279,7 @@ void Combat(Player& p, char m[][SIZE]) {
 }
 
 
-void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {}, Enemigos* ene = nullptr) {
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE], Enemigos* ene) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
