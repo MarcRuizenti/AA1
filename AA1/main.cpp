@@ -330,25 +330,7 @@ void use(Player& p, string ob) {
 void status(Player& player) {
 	
 
-	cout << "------------ PLAYER ------------" << endl;
-	cout << player.name << endl;
-	cout << "--------------------------------" << endl;
-	cout << "HP: " << player.health << "/" << player.maxHealth << endl;
-	cout << "-----------INVENTORY------------" << endl;
-
-	cout << "Potions: " << player.potion << endl;
-	cout << "Bomb: " << player.bomb << endl;
-	if (player.sword == true)
-		cout << "Sword: Yes" << endl;
-	else 
-		cout << "Sword: No" << endl;
-	if (player.key == true)
-		cout << "Key: Yes" << endl;
-	else
-		cout << "Key: No" << endl;
-
-	cout << "--------------------------------" << endl;
-	cout << " " << endl;
+	
 }
 
 void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]) {
@@ -406,8 +388,28 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << " " << endl;
 		}
 		
-		else if (comando == "status")
-			status(player);
+		else if (comando == "status") {
+			cout << "------------ PLAYER ------------" << endl;
+			cout << player.name << endl;
+			cout << "--------------------------------" << endl;
+			cout << "HP: " << player.health << "/" << player.maxHealth << endl;
+			cout << "-----------INVENTORY------------" << endl;
+
+			cout << "Potions: " << player.potion << endl;
+			cout << "Bomb: " << player.bomb << endl;
+			if (player.sword == true)
+				cout << "Sword: Yes" << endl;
+			else
+				cout << "Sword: No" << endl;
+			if (player.key == true)
+				cout << "Key: Yes" << endl;
+			else
+				cout << "Key: No" << endl;
+
+			cout << "--------------------------------" << endl;
+			cout << " " << endl;
+		}
+			
 		else if (comando == "pick")
 			pickupItem(player, m, direction);
 		else if (comando == "use")
