@@ -35,7 +35,7 @@ struct Enemigos {
 
 
 void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {});
-void whatwillyoudoConbat(Player& player, Enemigos& ene);
+void whatwillyoudoCombat(Player& player, Enemigos& ene);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
@@ -283,14 +283,12 @@ void Combat(Player& p, char m[][SIZE]) {
 
 
 
-	m[p.Y][p.X] = '.';
-	if (enemigoActual.health == 0)
+	if (p.health != 0)
 		currentScene = NAVIGATION;
-	else if (p.health == 0)
-		currentScene = 19;
+	
 }
 
-void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {}) {
+void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
