@@ -232,7 +232,7 @@ void Combat(Player& p, char m[][SIZE]) {
 		{{TROLL}, {"Troll"}, {90}, {90}, {15} }
 	};
 
-	Enemigos enemigoActual;
+	Enemigos* enemigoActual;
 
 	if (m[p.Y][p.X] == 'G')
 		razeEnemigo = GOBLIN;
@@ -243,23 +243,23 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	for (int i = 0; i < 3; i++) {
 		if (razeEnemigo == enemigo[i].raze)
-			enemigoActual = enemigo[i];
+			enemigoActual = &enemigo[i];
 	}
 
-	cout << enemigoActual.name << " attacks!" << endl;
-	cout << enemigoActual.name << " use Slash!" << endl;
-	cout << p.name << " recived " << enemigoActual.damage * 2 << " damage" << endl;
+	cout << enemigoActual->name << " attacks!" << endl;
+	cout << enemigoActual->name << " use Slash!" << endl;
+	cout << p.name << " recived " << enemigoActual->damage * 2 << " damage" << endl;
 
-	p.health -= enemigoActual.damage * 2;
+	p.health -= enemigoActual->damage * 2;
 
 	cout << "------------ En batalla ------------" << endl << endl;
 
 	while (true) {
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
 		cout << "VS" << endl;
-		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
+		cout << "[" << enemigoActual->name << "] HP:[" << enemigoActual->health << "/" << enemigoActual->maxHealth << "]" << endl;
 
-		whatwillyoudo(p);
+		whatwillyoudo(p, false, false, false, false, {}, enemigoActual);
 	}
 
 
@@ -267,11 +267,10 @@ void Combat(Player& p, char m[][SIZE]) {
 
 
 	m[p.Y][p.X] = '.';
-	if (enemigoActual.health = 0)
+	if (enemigoActual->health = 0)
 		currentScene = NAVIGATION;
-	else
+	else if (p.health = 0)
 		currentScene = 19;
-
 }
 
 
