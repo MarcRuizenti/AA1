@@ -261,6 +261,17 @@ void Combat(Player& p, char m[][SIZE]) {
 		cout << "[" << enemigoActual->name << "] HP:[" << enemigoActual->health << "/" << enemigoActual->maxHealth << "]" << endl;
 
 		whatwillyoudo(p, false, false, false, false, {}, enemigoActual);
+
+
+
+
+
+		if (enemigoActual->health < 0)
+			enemigoActual->health = 0;
+
+		if (p.health < 0)
+			p.health = 0;
+
 		if (enemigoActual->health == 0)
 			return;
 		else if (p.health == 0)
@@ -411,9 +422,19 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				cout << "You recovere 40 hp, now you have: " << player.health << "hp" << endl;
 			}
 			else if (direction == "Bomb") {
-
+				cout << "¡¡¡¡Boooooomb!!!!" << endl;
+				cout << ene->name << " loss 100Hp" << endl;
+				ene->health -= 100;
 			}
 			else if (direction == "Sword") {
+				if (player.sword == true) {
+					cout << "¡¡¡Zas¡¡¡" << endl;
+					cout << ene->name << " loss 40Hp" << endl;
+					ene->health -= 40;
+				}
+				else {
+					cout << "Don't have sword" << endl;
+				}
 
 			}
 		}
