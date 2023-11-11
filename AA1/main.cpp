@@ -330,20 +330,6 @@ void pickupItem(Player& p, char map[][SIZE], string collect) {
 void go(string direc, Player& player, bool n, bool w, bool e, bool s) {
 	
 	
-	if (direc == "east" && e) {
-		player.X += 1;
-	}
-	else if (direc == "west" && w) {
-		player.X -= 1;
-	}
-	else if (direc == "south" && s) {
-		player.Y += 1;
-	}
-	else if (direc == "north" && n) {
-		player.Y -= 1;
-	}
-	else
-		cout << "You can't move in this direction" << endl;
 }
 
 void use(Player& p, string ob) {
@@ -403,8 +389,23 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			comando = input; // Si no se encontró un espacio, todo es el comando
 		}
 
-		if (comando == "go")
-			go(direction, player, n, w, e, s);
+		if (comando == "go") {
+
+			if (direction == "east" && e) {
+				player.X += 1;
+			}
+			else if (direction == "west" && w) {
+				player.X -= 1;
+			}
+			else if (direction == "south" && s) {
+				player.Y += 1;
+			}
+			else if (direction == "north" && n) {
+				player.Y -= 1;
+			}
+			else
+				cout << "You can't move in this direction" << endl;
+		}
 		else if (comando == "help")
 			help();
 		else if (comando == "status")
