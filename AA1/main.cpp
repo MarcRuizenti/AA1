@@ -279,37 +279,7 @@ void Combat(Player& p, char m[][SIZE]) {
 }
 
 void pickupItem(Player& p, char map[][SIZE], string collect) {
-	if (map[p.Y][p.X] == 'P' || map[p.Y][p.X] == 'B' || map[p.Y][p.X] == 'S' || map[p.Y][p.X] == 'K') {
-		if (collect == "Potion") {
-			p.potion += 1;
-			map[p.Y][p.X] = '.';
-		}
-		else if (collect == "Bomb") {
-			p.bomb += 1;
-			map[p.Y][p.X] = '.';
-		}
-		else if (collect == "Sword") {
-			if (p.sword == false) {
-				p.sword = true;
-				map[p.Y][p.X] = '.';
-			}
-			else {
-				cout << "You have it" << endl;
-			}
-		}
-		else if (collect == "Key") {
-			if (p.key == false) {
-				p.key = true;
-				map[p.Y][p.X] = '.';
-			}
-			else {
-				cout << "You have it" << endl;
-			}
-		}
-	}
-	else {
-		cout << "There is no item" << endl;
-	}
+	
 }
 
 
@@ -410,8 +380,39 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << " " << endl;
 		}
 			
-		else if (comando == "pick")
-			pickupItem(player, m, direction);
+		else if (comando == "pick") {
+			if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
+				if ( direction == "Potion") {
+					player.potion += 1;
+					m[player.Y][player.X] = '.';
+				}
+				else if (direction == "Bomb") {
+					player.bomb += 1;
+					m[player.Y][player.X] = '.';
+				}
+				else if (direction == "Sword") {
+					if (player.sword == false) {
+						player.sword = true;
+						m[player.Y][player.X] = '.';
+					}
+					else {
+						cout << "You have it" << endl;
+					}
+				}
+				else if (direction == "Key") {
+					if (player.key == false) {
+						player.key = true;
+						m[player.Y][player.X] = '.';
+					}
+					else {
+						cout << "You have it" << endl;
+					}
+				}
+			}
+			else {
+				cout << "There is no item" << endl;
+			}
+		}
 		else if (comando == "use")
 			use(player, direction);
 	}
