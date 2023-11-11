@@ -300,20 +300,26 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		}
 
 		if (comando == "go") {
-			if (direction == "east" && e) {
-				player.X += 1;
+			if (currentScene != COMBAT) {
+				if (direction == "east" && e) {
+					player.X += 1;
+				}
+				else if (direction == "west" && w) {
+					player.X -= 1;
+				}
+				else if (direction == "south" && s) {
+					player.Y += 1;
+				}
+				else if (direction == "north" && n) {
+					player.Y -= 1;
+				}
+				else
+					cout << "You can't move in this direction" << endl;
 			}
-			else if (direction == "west" && w) {
-				player.X -= 1;
+			else {
+				cout << "Estas en comabte no puedes hacer eso" << endl;
 			}
-			else if (direction == "south" && s) {
-				player.Y += 1;
-			}
-			else if (direction == "north" && n) {
-				player.Y -= 1;
-			}
-			else
-				cout << "You can't move in this direction" << endl;
+		
 		}
 		else if (comando == "help") {
 			cout << "------- COMAND -------" << endl;
@@ -332,6 +338,8 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << " " << endl;
 			cout << "use + [potion | sword | bomb | key]" << endl;
 			cout << " " << endl;
+			if (currentScene == COMBAT)
+				cout << "Pedriste el turno" << endl;
 		}
 		
 		else if (comando == "status") {
@@ -354,40 +362,48 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 
 			cout << "--------------------------------" << endl;
 			cout << " " << endl;
+			if (currentScene == COMBAT)
+				cout << "Pedriste el turno" << endl;
 		}
 			
 		else if (comando == "pick") {
-			if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
-				if ( direction == "Potion") {
-					player.potion += 1;
-					m[player.Y][player.X] = '.';
-				}
-				else if (direction == "Bomb") {
-					player.bomb += 1;
-					m[player.Y][player.X] = '.';
-				}
-				else if (direction == "Sword") {
-					if (player.sword == false) {
-						player.sword = true;
+			if (currentScene != COMBAT) {
+				if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
+					if (direction == "Potion") {
+						player.potion += 1;
 						m[player.Y][player.X] = '.';
 					}
-					else {
-						cout << "You have it" << endl;
-					}
-				}
-				else if (direction == "Key") {
-					if (player.key == false) {
-						player.key = true;
+					else if (direction == "Bomb") {
+						player.bomb += 1;
 						m[player.Y][player.X] = '.';
 					}
-					else {
-						cout << "You have it" << endl;
+					else if (direction == "Sword") {
+						if (player.sword == false) {
+							player.sword = true;
+							m[player.Y][player.X] = '.';
+						}
+						else {
+							cout << "You have it" << endl;
+						}
 					}
+					else if (direction == "Key") {
+						if (player.key == false) {
+							player.key = true;
+							m[player.Y][player.X] = '.';
+						}
+						else {
+							cout << "You have it" << endl;
+						}
+					}
+				}
+				else {
+					cout << "There is no item" << endl;
 				}
 			}
 			else {
-				cout << "There is no item" << endl;
+				cout << "Estas en comabte no puedes hacer eso" << endl;
 			}
+			
 		}
 		else if (comando == "use") {
 			if (direction == "Potion") {
