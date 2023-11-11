@@ -34,7 +34,7 @@ struct Enemigos {
 };
 
 
-void whatwillyoudo(Player& player, Enemigos* ene = nullptr, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {});
+void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {}, Enemigos* ene = nullptr);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 
@@ -212,7 +212,7 @@ void Navigation(Player& player, char map[][SIZE]) {
 		else if (map[player.Y][player.X + 1] == 'T')
 			cout << "There is a Troll at east" << endl;
 
-		whatwillyoudo(player, player,  north, west, east, south, map);
+		whatwillyoudo(player, north, west, east, south, map);
 		
 	}
 	else {
@@ -275,7 +275,7 @@ void Combat(Player& p, char m[][SIZE]) {
 }
 
 
-void whatwillyoudo(Player& player, Enemigos* ene = nullptr, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {}) {
+void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {}, Enemigos* ene = nullptr) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
