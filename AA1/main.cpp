@@ -267,9 +267,9 @@ void Combat(Player& p, char m[][SIZE]) {
 
 
 	m[p.Y][p.X] = '.';
-	if (enemigoActual->health = 0)
+	if (enemigoActual->health == 0)
 		currentScene = NAVIGATION;
-	else if (p.health = 0)
+	else if (p.health == 0)
 		currentScene = 19;
 }
 
