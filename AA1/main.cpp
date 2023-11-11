@@ -34,14 +34,11 @@ struct Enemigos {
 };
 
 void help();
-void go(string direc, Player& player, bool n, bool w, bool e, bool s);
-void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]);
-void status(Player& player);
+void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE]);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
-void pickupItem(Player& p, char map[][SIZE], string collect);
-void whatwillyoudocombat(Player& p);
+
 void use(Player& p, string ob);
 int main() {
 	char map[SIZE][SIZE]{
@@ -266,7 +263,7 @@ void Combat(Player& p, char m[][SIZE]) {
 		cout << "VS" << endl;
 		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
 
-		whatwillyoudocombat(p);
+		whatwillyoudo(p);
 	}
 
 
@@ -278,32 +275,11 @@ void Combat(Player& p, char m[][SIZE]) {
 
 }
 
-void pickupItem(Player& p, char map[][SIZE], string collect) {
-	
-}
-
-
-
 void use(Player& p, string ob) {
-	if (ob == "Potion") {
-		p.health += 40;
-		cout << "You recovere 40 hp, now you have: " << p.health << "hp" << endl;
-	}
-	else if (ob == "Bomb") {
-		
-	}
-	else if (ob == "Sword") {
 
-	}
 }
 
-void status(Player& player) {
-	
-
-	
-}
-
-void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]) {
+void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE]) {
 	string input;
 	cout << "What will you do?: ";
 	getline(cin, input);
@@ -413,40 +389,20 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				cout << "There is no item" << endl;
 			}
 		}
-		else if (comando == "use")
-			use(player, direction);
+		else if (comando == "use") {
+			if (direction == "Potion") {
+				player.health += 40;
+				cout << "You recovere 40 hp, now you have: " << player.health << "hp" << endl;
+			}
+			else if (direction == "Bomb") {
+
+			}
+			else if (direction == "Sword") {
+
+			}
+		}
+	
 	}
 	system("pause");
 }
 
-void whatwillyoudocombat(Player& p) {
-
-	string input;
-	cout << "What will you do?: ";
-	getline(cin, input);
-
-	if (input.empty()) {
-		cout << "You didn't enter anything." << endl;
-	}
-	else {
-		string comando, direction;
-		size_t space_pos = input.find(' '); // Busca el primer espacio en la cadena
-
-		if (space_pos != string::npos) { // Si se encontró un espacio
-			comando = input.substr(0, space_pos); // Obtiene la parte antes del espacio
-			direction = input.substr(space_pos + 1); // Obtiene la parte después del espacio
-		}
-		else {
-			comando = input; // Si no se encontró un espacio, todo es el comando
-		}
-
-
-		if (comando == "help")
-			help();
-		else if (comando == "status")
-			status(p);
-		else if (comando == "use")
-			use(p, direction);
-	}
-
-}
