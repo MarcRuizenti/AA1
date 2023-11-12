@@ -103,9 +103,11 @@ void Intro(Player& player) {
 }
 
 void Navigation(Player& player, char map[][SIZE]) {
-	system("cls");
+	
 
 	if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
+		system("cls");
+
 		cout << "[" << player.name << "]" << " at " << "[" << player.X << ", " << player.Y << "]" << endl;
 
 		if (player.Y < 5 && player.X < 6)
@@ -254,9 +256,13 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	p.health -= enemigoActual.damage * 2;
 
-	cout << "------------ En batalla ------------" << endl << endl;
+	system("pause");
+
+	cout << "------------ En batalla ------------" << endl;
 
 	while (true) {
+		system("cls");
+
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
 		cout << "VS" << endl;
 		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
@@ -434,16 +440,16 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				cout << "You recover 40 hp, now you have: " << player.health << "hp" << endl;
 			}
 			else if (direction == "bomb") {
-				
+				cout << "Este item solo se puede usar en combate" << endl;
 			}
 			else if (direction == "sword") {
-				
-			
+				cout << "Este item solo se puede usar en combate" << endl;
 			}
 		}
 
 	}
-	system("pause");
+	if (m[player.Y][player.X] != 'G' && m[player.Y][player.X] != 'O' && m[player.Y][player.X] != 'T')
+		system("pause");
 }
 
 void whatwillyoudoCombat(Player& player, Enemigos& ene) {
@@ -539,14 +545,14 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 				
 			}
 			else if (direction == "sword") {
-				cout << "¡¡¡Zas¡¡¡" << endl;
-				cout << ene.name << " lost 40Hp" << endl;
-				ene.health -= 40;
+				
 				if (player.sword == false) {
 					cout << "Don't have sword" << endl;
 				}
 				else {
-					cout << "No enemy to attack" << endl;
+					cout << "¡¡¡Zas¡¡¡" << endl;
+					cout << ene.name << " lost 40Hp" << endl;
+					ene.health -= 40;
 				}
 				
 			}
