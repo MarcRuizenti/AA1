@@ -392,15 +392,15 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		else if (comando == "pick") {
 			if (currentScene != COMBAT) {
 				if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
-					if (direction == "Potion") {
+					if (direction == "potion") {
 						player.potion += 1;
 						m[player.Y][player.X] = '.';
 					}
-					else if (direction == "Bomb") {
+					else if (direction == "bomb") {
 						player.bomb += 1;
 						m[player.Y][player.X] = '.';
 					}
-					else if (direction == "Sword") {
+					else if (direction == "sword") {
 						if (player.sword == false) {
 							player.sword = true;
 							m[player.Y][player.X] = '.';
@@ -409,7 +409,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 							cout << "You have it" << endl;
 						}
 					}
-					else if (direction == "Key") {
+					else if (direction == "key") {
 						if (player.key == false) {
 							player.key = true;
 							m[player.Y][player.X] = '.';
@@ -428,15 +428,15 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			}
 
 		}
-		else     if (comando == "use") {
-			if (direction == "Potion") {
+		else if (comando == "use") {
+			if (direction == "potion") {
 				player.health += 40;
 				cout << "You recover 40 hp, now you have: " << player.health << "hp" << endl;
 			}
-			else if (direction == "Bomb") {
+			else if (direction == "bomb") {
 				
 			}
-			else if (direction == "Sword") {
+			else if (direction == "sword") {
 				
 			
 			}
@@ -528,17 +528,17 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 		else if (comando == "pick") 
 				cout << "Estas en comabte no puedes hacer eso" << endl;
 		else if (comando == "use") {
-			if (direction == "Potion") {
+			if (direction == "potion") {
 				player.health += 40;
 				cout << "You recover 40 hp, now you have: " << player.health << "hp" << endl;
 			}
-			else if (direction == "Bomb") {
+			else if (direction == "bomb") {
 				cout << "¡¡¡¡Boooooomb!!!!" << endl;
 				cout << ene.name << " lost 100Hp" << endl;
 				ene.health -= 100;
 				
 			}
-			else if (direction == "Sword") {
+			else if (direction == "sword") {
 				cout << "¡¡¡Zas¡¡¡" << endl;
 				cout << ene.name << " lost 40Hp" << endl;
 				ene.health -= 40;
