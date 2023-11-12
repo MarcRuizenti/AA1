@@ -352,7 +352,6 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			if (currentScene == COMBAT)
 				cout << "Pedriste el turno" << endl;
 		}
-
 		else if (comando == "status") {
 			cout << "------------ PLAYER ------------" << endl;
 			cout << player.name << endl;
@@ -376,7 +375,6 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			if (currentScene == COMBAT)
 				cout << "Pedriste el turno" << endl;
 		}
-
 		else if (comando == "pick") {
 			if (currentScene != COMBAT) {
 				if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
