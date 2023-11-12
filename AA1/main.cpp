@@ -274,7 +274,7 @@ void Combat(Player& p, char m[][SIZE]) {
 
 
 		if (enemigoActual.health != 0) {
-			cout << enemigoActual.name << " attack and do " << enemigoActual.damage << " dp" << endl;
+			cout << enemigoActual.name << " attack and you loss " << enemigoActual.damage << "Hp" << endl;
 			p.health -= enemigoActual.damage;
 		}
 		else {
@@ -293,6 +293,7 @@ void Combat(Player& p, char m[][SIZE]) {
 			currentScene = 124;
 			return;
 		}	
+		system("pause");
 	}
 }
 
@@ -331,26 +332,23 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		
 
 		if (comando == "go") {
-			if (currentScene != COMBAT) {
-				if (direction == "east" && e) {
-					player.X += 1;
-				}
-				else if (direction == "west" && w) {
-					player.X -= 1;
-				}
-				else if (direction == "south" && s) {
-					player.Y += 1;
-				}
-				else if (direction == "north" && n) {
-					player.Y -= 1;
-				}
-				else
-					cout << "You can't move in this direction" << endl;
+
+			if (direction == "east" && e) {
+				player.X += 1;
+			}
+			else if (direction == "west" && w) {
+				player.X -= 1;
+			}
+			else if (direction == "south" && s) {
+				player.Y += 1;
+			}
+			else if (direction == "north" && n) {
+				player.Y -= 1;
 			}
 			else {
-				cout << "Estas en comabte no puedes hacer eso" << endl;
+				cout << "You can't move in this direction" << endl;
 			}
-
+		
 		}
 		else if (comando == "help") {
 			cout << "------- COMAND -------" << endl;
@@ -369,8 +367,6 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << " " << endl;
 			cout << "use + [potion | sword | bomb | key]" << endl;
 			cout << " " << endl;
-			if (currentScene == COMBAT)
-				cout << "Pedriste el turno" << endl;
 		}
 		else if (comando == "status") {
 			cout << "------------ PLAYER ------------" << endl;
@@ -392,47 +388,39 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 
 			cout << "--------------------------------" << endl;
 			cout << " " << endl;
-			if (currentScene == COMBAT)
-				cout << "Pedriste el turno" << endl;
 		}
 		else if (comando == "pick") {
-			if (currentScene != COMBAT) {
-				if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
-					if (direction == "potion") {
-						player.potion += 1;
+			if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
+				if (direction == "potion") {
+					player.potion += 1;
+					m[player.Y][player.X] = '.';
+				}
+				else if (direction == "bomb") {
+					player.bomb += 1;
+					m[player.Y][player.X] = '.';
+				}
+				else if (direction == "sword") {
+					if (player.sword == false) {
+						player.sword = true;
 						m[player.Y][player.X] = '.';
 					}
-					else if (direction == "bomb") {
-						player.bomb += 1;
-						m[player.Y][player.X] = '.';
-					}
-					else if (direction == "sword") {
-						if (player.sword == false) {
-							player.sword = true;
-							m[player.Y][player.X] = '.';
-						}
-						else {
-							cout << "You have it" << endl;
-						}
-					}
-					else if (direction == "key") {
-						if (player.key == false) {
-							player.key = true;
-							m[player.Y][player.X] = '.';
-						}
-						else {
-							cout << "You have it" << endl;
-						}
+					else {
+						cout << "You have it" << endl;
 					}
 				}
-				else {
-					cout << "There is no item" << endl;
+				else if (direction == "key") {
+					if (player.key == false) {
+						player.key = true;
+						m[player.Y][player.X] = '.';
+					}
+					else {
+						cout << "You have it" << endl;
+					}
 				}
 			}
 			else {
-				cout << "Estas en comabte no puedes hacer eso" << endl;
+				cout << "There is no item" << endl;
 			}
-
 		}
 		else if (comando == "use") {
 			if (direction == "potion") {
@@ -445,6 +433,13 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			else if (direction == "sword") {
 				cout << "Este item solo se puede usar en combate" << endl;
 			}
+			else if (direction == "key") {
+				if (m[player.Y][player.X - 1] == 'L') {
+					cout << "Unlock de door" << endl;
+					m[player.Y][player.X - 1] = '.';
+				}
+			}
+
 		}
 		else if (comando == "punch") {
 			cout << "No estas en combate" << endl;
@@ -501,16 +496,10 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			cout << "status" << endl;
 			cout << "    " << "The status comand shows your name, health and the inventory" << endl;
 			cout << " " << endl;
-			cout << "------- COMAND IN COMBAT -------" << endl;
-			cout << "status" << endl;
-			cout << "    " << "The status comand shows your name, health and the inventory" << endl;
-			cout << " " << endl;
-			cout << "use + [potion | sword | bomb | key]" << endl;
-			cout << " " << endl;
 			cout << "punch" << endl;
-			cout << "    " << "Base attack" << endl;
-			if (currentScene == COMBAT)
-				cout << "Pedriste el turno" << endl;
+			cout << "    " << "Base attack" << endl << endl;
+		
+			cout << "Pedriste el turno" << endl;
 		}
 		else if (comando == "status") {
 			cout << "------------ PLAYER ------------" << endl;
@@ -532,8 +521,8 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 
 			cout << "--------------------------------" << endl;
 			cout << " " << endl;
-			if (currentScene == COMBAT)
-				cout << "Pedriste el turno" << endl;
+			
+			cout << "Pedriste el turno" << endl;
 		}
 		else if (comando == "pick") 
 				cout << "Estas en comabte no puedes hacer eso" << endl;
@@ -558,6 +547,8 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 					ene.health -= 40;
 				}
 			}
+			else if (direction == "key")
+				cout << "Este item no s epuede usar en combate" << endl;
 		}
 		else if (comando == "punch") {
 
@@ -567,6 +558,6 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 		}
 		
 	}
-	system("pause");
+
 }
 
