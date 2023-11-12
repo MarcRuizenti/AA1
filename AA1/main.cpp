@@ -536,27 +536,32 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 		else if (comando == "use") {
 			if (direction == "potion") {
 				player.health += 40;
-				cout << "You recover 40 hp, now you have: " << player.health << "hp" << endl;
+				cout << "You recover 40Hp, now you have: " << player.health << "Hp" << endl;
 			}
 			else if (direction == "bomb") {
 				cout << "¡¡¡¡Boooooomb!!!!" << endl;
 				cout << ene.name << " lost 100Hp" << endl;
 				ene.health -= 100;
-				
+
 			}
 			else if (direction == "sword") {
-				
 				if (player.sword == false) {
 					cout << "Don't have sword" << endl;
 				}
 				else {
-					cout << "¡¡¡Zas¡¡¡" << endl;
+					cout << "¡¡¡Zas!!!" << endl;
 					cout << ene.name << " lost 40Hp" << endl;
 					ene.health -= 40;
 				}
-				
 			}
 		}
+		else if (comando == "punch") {
+
+			cout << "Punch a " << ene.name << " and loss 10Hp" << endl;
+			ene.health -= 10;
+
+		}
+		
 	}
 	system("pause");
 }
