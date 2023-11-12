@@ -446,7 +446,9 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				cout << "Este item solo se puede usar en combate" << endl;
 			}
 		}
-
+		else if (comando == "punch") {
+			cout << "No estas en combate" << endl;
+		}
 	}
 	if (m[player.Y][player.X] != 'G' && m[player.Y][player.X] != 'O' && m[player.Y][player.X] != 'T')
 		system("pause");
@@ -505,6 +507,8 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			cout << " " << endl;
 			cout << "use + [potion | sword | bomb | key]" << endl;
 			cout << " " << endl;
+			cout << "punch" << endl;
+			cout << "    " << "Base attack" << endl;
 			if (currentScene == COMBAT)
 				cout << "Pedriste el turno" << endl;
 		}
