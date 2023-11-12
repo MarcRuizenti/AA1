@@ -275,22 +275,14 @@ void Combat(Player& p, char m[][SIZE]) {
 			cout << "You kill a " << enemigoActual.name << endl;
 		}
 
-
-
-
-		
 		if (p.health < 0)
 			p.health = 0;
-
-	
-			
 
 		if (enemigoActual.health == 0) {
 			currentScene = NAVIGATION;
 			m[p.Y][p.X] = '.';
 			return;
 		}
-			
 		else if (p.health == 0) {
 			currentScene = 124;
 			return;
@@ -485,7 +477,6 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			if (currentScene == COMBAT)
 				cout << "Pedriste el turno" << endl;
 		}
-		
 		else if (comando == "status") {
 			cout << "------------ PLAYER ------------" << endl;
 			cout << player.name << endl;
@@ -509,10 +500,8 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			if (currentScene == COMBAT)
 				cout << "Pedriste el turno" << endl;
 		}
-			
 		else if (comando == "pick") 
 				cout << "Estas en comabte no puedes hacer eso" << endl;
-			
 		else if (comando == "use") {
 			if (direction == "Potion") {
 				player.health += 40;
@@ -537,7 +526,6 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 				
 			}
 		}
-	
 	}
 	system("pause");
 }
