@@ -263,13 +263,22 @@ void Combat(Player& p, char m[][SIZE]) {
 
 		whatwillyoudoCombat(p, enemigoActual);
 
-
-
-
-
 		if (enemigoActual.health < 0)
 			enemigoActual.health = 0;
 
+
+		if (enemigoActual.health != 0) {
+			cout << enemigoActual.name << " attack and do " << enemigoActual.damage << " dp" << endl;
+			p.health -= enemigoActual.damage;
+		}
+		else {
+			cout << "You kill a " << enemigoActual.name << endl;
+		}
+
+
+
+
+		
 		if (p.health < 0)
 			p.health = 0;
 
