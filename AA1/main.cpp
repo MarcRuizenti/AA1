@@ -466,6 +466,19 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			comando = input; // Si no se encontró un espacio, todo es el comando
 		}
 
+		for (int i = 0; i < comando.size(); i++) {
+			if (comando[i] >= 'A' && comando[i] <= 'Z') {
+				comando[i] += ' ';
+			}
+		}
+		if (!(direction.empty())) {
+			for (int i = 0; i < direction.size(); i++) {
+				if (direction[i] >= 'A' && direction[i] <= 'Z') {
+					direction[i] += ' ';
+				}
+			}
+		}
+
 		if (comando == "go") 
 			cout << "Estas en comabte no puedes hacer eso" << endl;
 	
