@@ -273,19 +273,20 @@ void Combat(Player& p, char m[][SIZE]) {
 		if (p.health < 0)
 			p.health = 0;
 
-		if (enemigoActual.health == 0)
-			return;
-		else if (p.health == 0)
-			return;
-	}
-
-
-
-
-
-	if (p.health != 0)
-		currentScene = NAVIGATION;
 	
+			
+
+		if (enemigoActual.health == 0) {
+			currentScene = NAVIGATION;
+			m[p.Y][p.X] = '.';
+			return;
+		}
+			
+		else if (p.health == 0) {
+			currentScene = 124;
+			return;
+		}	
+	}
 }
 
 void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE]) {
