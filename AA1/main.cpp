@@ -335,19 +335,19 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		if (comando == "go") {
 
 			if (direction == "east" && e) {
-				cout << player.name << "move to east" << endl;
+				cout << player.name << " move to east" << endl;
 				player.X += 1;
 			}
 			else if (direction == "west" && w) {
-				cout << player.name << "move to west" << endl;
+				cout << player.name << " move to west" << endl;
 				player.X -= 1;
 			}
 			else if (direction == "south" && s) {
-				cout << player.name << "move to south" << endl;
+				cout << player.name << " move to south" << endl;
 				player.Y += 1;
 			}
 			else if (direction == "north" && n) {
-				cout << player.name << "move to north" << endl;
+				cout << player.name << " move to north" << endl;
 				player.Y -= 1;
 			}
 			else {
@@ -393,18 +393,18 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		else if (comando == "pick") {
 			if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
 				if (direction == "potion") {
-					cout << player.name << "pick a potion" << endl;
+					cout << player.name << " pick a potion" << endl;
 					player.potion += 1;
 					m[player.Y][player.X] = '.';
 				}
 				else if (direction == "bomb") {
-					cout << player.name << "pick a bomb" << endl;
+					cout << player.name << " pick a bomb" << endl;
 					player.bomb += 1;
 					m[player.Y][player.X] = '.';
 				}
 				else if (direction == "sword") {
 					if (player.sword == false) {
-						cout << player.name << "pick a sword" << endl;
+						cout << player.name << " pick a sword" << endl;
 						player.sword = true;
 						m[player.Y][player.X] = '.';
 					}
@@ -414,7 +414,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 				else if (direction == "key") {
 					if (player.key == false) {
-						cout << player.name << "pick the key" << endl;
+						cout << player.name << " pick the key" << endl;
 						player.key = true;
 						m[player.Y][player.X] = '.';
 					}
