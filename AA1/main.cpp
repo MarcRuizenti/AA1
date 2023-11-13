@@ -5,7 +5,7 @@
 #include <vector>
 
 
-enum Scene { INTRO, NAVIGATION, COMBAT};
+enum Scene { INTRO, NAVIGATION, COMBAT, BOSS};
 
 #define SIZE 10
 int currentScene = INTRO;
@@ -39,6 +39,8 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
+void Boss();
+
 
 int main() {
 	char map[SIZE][SIZE]{
@@ -77,6 +79,10 @@ int main() {
 		else if (currentScene == COMBAT) {
 			Combat(player, map);
 		}
+		else if (currentScene == BOSS) {
+
+		}
+
 		else {
 			return 0;
 		}
@@ -103,9 +109,11 @@ void Intro(Player& player) {
 }
 
 void Navigation(Player& player, char map[][SIZE]) {
-	
 
-	if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
+	if (map[player.Y][player.X] = 'L') 
+		currentScene = BOSS;
+	
+	else if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
 		system("cls");
 
 		cout << "[" << player.name << "]" << " at " << "[" << player.X << ", " << player.Y << "]" << endl;
