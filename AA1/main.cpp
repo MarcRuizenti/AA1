@@ -263,7 +263,7 @@ void Combat(Player& p, char m[][SIZE]) {
 	cout << p.name << " recived " << enemigoActual.damage * 2 << " damage" << endl;
 
 	p.health -= enemigoActual.damage * 2;
-
+	
 	system("pause");
 
 	cout << "------------ En batalla ------------" << endl;
