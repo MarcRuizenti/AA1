@@ -641,7 +641,7 @@ void Boss(Player& p) {
 			p.health = 0;
 
 		if (boss.health == 0) {
-			cout << "You win!!!!!" << endl;
+			cout << "Congrats, you pass the game!!!!!" << endl;
 			currentScene = 10;
 			system("pause");
 			return;
