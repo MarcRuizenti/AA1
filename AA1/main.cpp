@@ -431,25 +431,29 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		}
 		else if (comando == "use") {
 			if (direction == "potion") {
-				if (player.health == player.maxHealth)
+				if (player.health == player.maxHealth) {
 					cout << "You have a max heath" << endl;
+					player.potion -= 1;
+					cout << "You used the potion" << endl;
+				}
 				else {
 					if (player.health + 40 < player.maxHealth) {
 						player.health += 40;
 						cout << "You recover 40Hp, now you have: " << player.health << "Hp" << endl;
+						player.potion -= 1;
 					}
 					else {
 						cout << "You recover " << player.maxHealth - player.health << "Hp, now you have : " << player.health + (player.maxHealth - player.health) << "Hp" << endl;
 						player.health = player.health + (player.maxHealth - player.health);
-
+						player.potion -= 1;
 					}
 				}
 			}
 			else if (direction == "bomb") {
-				cout << "Este item solo se puede usar en combate" << endl;
+				cout << "This item can inly use in combat" << endl;
 			}
 			else if (direction == "sword") {
-				cout << "Este item solo se puede usar en combate" << endl;
+				cout << "This item can only use in combat" << endl;
 			}
 			else if (direction == "key") {
 				if (m[player.Y][player.X - 1] == 'L') {
@@ -460,7 +464,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 
 		}
 		else if (comando == "punch") {
-			cout << "No estas en combate" << endl;
+			cout << "You dodn't stay in combat" << endl;
 		}
 		else {
 			cout << "Not valid command" << endl;
@@ -504,7 +508,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 		}
 
 		if (comando == "go") 
-			cout << "Estas en comabte no puedes hacer eso" << endl;
+			cout << "You didn't do this, you stay in combat" << endl;
 	
 		else if (comando == "help") {
 			cout << "------- COMAND -------" << endl;
@@ -520,7 +524,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			cout << "punch" << endl;
 			cout << "    " << "Base attack" << endl << endl;
 		
-			cout << "Pedriste el turno" << endl;
+			cout << "You lose the turn" << endl;
 		}
 		else if (comando == "status") {
 			cout << "------------ PLAYER ------------" << endl;
@@ -543,10 +547,10 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			cout << "--------------------------------" << endl;
 			cout << " " << endl;
 			
-			cout << "Pedriste el turno" << endl;
+			cout << "You lose the turn" << endl;
 		}
 		else if (comando == "pick") 
-				cout << "Estas en comabte no puedes hacer eso" << endl;
+				cout << "You didn't do this, you stay in combat" << endl;
 		else if (comando == "use") {
 			if (direction == "potion") {
 				if (player.health == player.maxHealth)
@@ -580,7 +584,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 				}
 			}
 			else if (direction == "key")
-				cout << "Este item no s epuede usar en combate" << endl;
+				cout << "This item can't use in combat" << endl;
 		}
 		else if (comando == "punch") {
 
