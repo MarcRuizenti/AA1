@@ -24,7 +24,7 @@ struct Player {
 	bool key;
 };
 
-enum Raze { GOBLIN, ORC, TROLL };
+enum Raze { GOBLIN, ORC, TROLL, DEVYL };
 struct Enemigos {
 	Raze raze;
 	string name;
@@ -39,7 +39,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
-void Boss();
+void Boss(Player& p);
 
 
 int main() {
@@ -613,5 +613,13 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 }
 
 void Boss(Player& p) {
+	Enemigos boss{
+		DEVYL,
+		"Devyl",
+		250,
+		250,
+		20
+	};
+
 
 }
