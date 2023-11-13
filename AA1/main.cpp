@@ -622,8 +622,8 @@ void Boss(Player& p) {
 	Enemigos boss{
 		DEVIL,
 		"Devil",
-		250,
-		250,
+		290,
+		290,
 		20
 	};
 
