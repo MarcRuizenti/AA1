@@ -428,8 +428,19 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		}
 		else if (comando == "use") {
 			if (direction == "potion") {
-				player.health += 40;
-				cout << "You recover 40 hp, now you have: " << player.health << "hp" << endl;
+				if (player.health == player.maxHealth)
+					cout << "You have a max heath" << endl;
+				else {
+					if (player.health + 40 < player.maxHealth) {
+						player.health += 40;
+						cout << "You recover 40Hp, now you have: " << player.health << "Hp" << endl;
+					}
+					else {
+						cout << "You recover " << player.maxHealth - player.health << "Hp, now you have : " << player.health + (player.maxHealth - player.health) << "Hp" << endl;
+						player.health = player.health + (player.maxHealth - player.health);
+
+					}
+				}
 			}
 			else if (direction == "bomb") {
 				cout << "Este item solo se puede usar en combate" << endl;
@@ -540,8 +551,9 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 						cout << "You recover 40Hp, now you have: " << player.health << "Hp" << endl;
 					}
 					else {
-						player.health += (player.maxHealth - player.health);
-						cout << "You recover " << player.maxHealth - player.health << ", now you have : " << player.health << "Hp" << endl;
+						cout << "You recover " << player.maxHealth - player.health << "Hp, now you have : " << player.health + (player.maxHealth - player.health) << "Hp" << endl;
+						player.health = player.health + (player.maxHealth - player.health);
+						
 					}
 				}
 			}
