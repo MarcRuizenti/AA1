@@ -39,7 +39,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
-void Boss(Player& p, char m[][SIZE]);
+void Boss(Player& p);
 
 
 int main() {
@@ -80,7 +80,7 @@ int main() {
 			Combat(player, map);
 		}
 		else if (currentScene == BOSS) {
-			Boss(player, map);
+			Boss(player);
 		}
 
 		else {
@@ -609,7 +609,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 
 }
 
-void Boss(Player& p, char m[][SIZE]) {
+void Boss(Player& p) {
 	Enemigos boss{
 		DEVIL,
 		"Devil",
@@ -644,8 +644,7 @@ void Boss(Player& p, char m[][SIZE]) {
 
 		if (boss.health == 0) {
 			cout << "You win!!!!!" << endl;
-			currentScene = NAVIGATION;
-			m[p.Y][p.X] = '.';
+			currentScene = 10;
 			system("pause");
 			return;
 		}
