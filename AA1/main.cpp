@@ -39,7 +39,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
-void Boss(Player& p);
+void Boss(Player& p, char m[][SIZE]);
 
 
 int main() {
@@ -94,10 +94,10 @@ int main() {
 void Intro(Player& player) {
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
-	cout << "The protagonist must go through an adventure that will lead him to encounter difficulties.";
-	cout << "On his journey he will find tools to fight against the monsters that await him until he reaches the final objective, the devil.";
-	cout << "The demon threatens to wipe out all humans if they do not heed his requests.";
-	cout << "As a hero you must defeat him to save the world from despair.";
+	cout << "The protagonist must go through an adventure that will lead him to encounter difficulties." << endl;
+	cout << "On his journey he will find tools to fight against the monsters that await him until he reaches the final objective, the devil." << endl;
+	cout << "The demon threatens to wipe out all humans if they do not heed his requests." << endl;
+	cout << "As a hero you must defeat him to save the world from despair." << endl;
 	cout << "Use the HELP command to show the options " << endl;
 	cout << "------------------------------------------------" << endl;
 	cout << "May I ask your name, brave hero? ";
@@ -237,8 +237,6 @@ void Navigation(Player& player, char map[][SIZE]) {
 }
 
 void Combat(Player& p, char m[][SIZE]) {
-
-
 
 	Raze razeEnemigo = ORC;
 
@@ -611,7 +609,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 
 }
 
-void Boss(Player& p) {
+void Boss(Player& p, char m[][SIZE]) {
 	Enemigos boss{
 		DEVYL,
 		"Devyl",
@@ -619,4 +617,44 @@ void Boss(Player& p) {
 		250,
 		20
 	};
+
+	Enemigos enemigoActual;
+
+	while (true) {
+		system("cls");
+
+		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
+		cout << "VS" << endl;
+		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
+
+		whatwillyoudoCombat(p, enemigoActual);
+
+		if (enemigoActual.health < 0)
+			enemigoActual.health = 0;
+
+
+		if (enemigoActual.health != 0) {
+			cout << enemigoActual.name << " attack and you loss " << enemigoActual.damage << "Hp" << endl;
+			p.health -= enemigoActual.damage;
+		}
+		else {
+			cout << "You kill a " << enemigoActual.name << endl;
+		}
+
+		if (p.health < 0)
+			p.health = 0;
+
+		if (enemigoActual.health == 0) {
+			cout << "You win!!!!!" << endl;
+			currentScene = NAVIGATION;
+			m[p.Y][p.X] = '.';
+			system("pause");
+			return;
+		}
+		else if (p.health == 0) {
+			currentScene = 124;
+			return;
+		}
+		system("pause");
+	}
 }
