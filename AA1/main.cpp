@@ -5,7 +5,7 @@
 #include <vector>
 
 
-enum Scene { INTRO, NAVIGATION, COMBAT, PICKPITEM };
+enum Scene { INTRO, NAVIGATION, COMBAT};
 
 #define SIZE 10
 int currentScene = INTRO;
