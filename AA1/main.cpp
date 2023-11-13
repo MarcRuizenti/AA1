@@ -89,8 +89,6 @@ int main() {
 	}
 }
 
-
-
 void Intro(Player& player) {
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
