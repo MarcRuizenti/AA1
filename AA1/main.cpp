@@ -80,7 +80,7 @@ int main() {
 			Combat(player, map);
 		}
 		else if (currentScene == BOSS) {
-
+			Boss(player, map);
 		}
 
 		else {
