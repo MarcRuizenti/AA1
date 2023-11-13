@@ -611,3 +611,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 	}
 
 }
+
+void Boss(Player& p) {
+
+}
