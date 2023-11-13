@@ -107,7 +107,7 @@ void Intro(Player& player) {
 
 void Navigation(Player& player, char map[][SIZE]) {
 
-	if (map[player.Y][player.X] == 'L') 
+	if (map[player.Y][player.X] == 'J') 
 		currentScene = BOSS;
 	
 	else if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
@@ -136,7 +136,7 @@ void Navigation(Player& player, char map[][SIZE]) {
 		bool north = map[player.Y - 1][player.X] == '#' || map[player.Y - 1][player.X] == 'L';
 		bool west = map[player.Y][player.X - 1] == '#' || map[player.Y - 1][player.X] == 'L';
 		bool east = map[player.Y][player.X + 1] == '#' || map[player.Y - 1][player.X] == 'L';
-		bool south = map[player.Y + 1][player.X] == '#' || map[player.Y - 1][player.X] == 'L';
+		bool south = map[player.Y + 1][player.X] == '#';
 
 		if (!north) {
 			cout << "[NORTH]";
