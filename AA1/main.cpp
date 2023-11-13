@@ -133,21 +133,21 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "The penchant detects an evil aura at west" << endl;
 
 		cout << "You can go: ";
-		bool north = map[player.Y - 1][player.X] != '#' && map[player.Y - 1][player.X] != 'L';
-		bool west = map[player.Y][player.X - 1] != '#' && map[player.Y - 1][player.X] != 'L';
-		bool east = map[player.Y][player.X + 1] != '#' && map[player.Y - 1][player.X] != 'L';
-		bool south = map[player.Y + 1][player.X] != '#' && map[player.Y - 1][player.X] != 'L';
+		bool north = map[player.Y - 1][player.X] == '#' || map[player.Y - 1][player.X] == 'L';
+		bool west = map[player.Y][player.X - 1] == '#' || map[player.Y - 1][player.X] == 'L';
+		bool east = map[player.Y][player.X + 1] == '#' || map[player.Y - 1][player.X] == 'L';
+		bool south = map[player.Y + 1][player.X] == '#' || map[player.Y - 1][player.X] == 'L';
 
-		if (north) {
+		if (!north) {
 			cout << "[NORTH]";
 		}
-		if (west) {
+		if (!west) {
 			cout << "[WEST]";
 		}
-		if (east) {
+		if (!east) {
 			cout << "[EAST]";
 		}
-		if (south) {
+		if (!south) {
 			cout << "[SOUTH]";
 		}
 		cout << endl;
@@ -226,7 +226,7 @@ void Navigation(Player& player, char map[][SIZE]) {
 		else if (map[player.Y][player.X + 1] == 'T')
 			cout << "There is a Troll at east" << endl;
 
-		whatwillyoudo(player, north, west, east, south, map);
+		whatwillyoudo(player, !north, !west, !east, !south, map);
 		
 	}
 	else {
@@ -239,9 +239,9 @@ void Combat(Player& p, char m[][SIZE]) {
 	Raze razeEnemigo = ORC;
 
 	Enemigos enemigo[3]{
-		{{GOBLIN}, {"Goblin"}, {30}, {30}, {5}},
-		{{ORC}, {"Orco"}, {90}, {90}, {15}},
-		{{TROLL}, {"Troll"}, {60}, {60}, {10}}
+		{GOBLIN, "Goblin", 30, 30, 5},
+		{ORC, "Orco", 90, 90, 15},
+		{TROLL, "Troll", 60, 60, 10}
 	};
 
 	Enemigos enemigoActual;
@@ -464,9 +464,9 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				cout << "This item can only use in combat" << endl;
 			}
 			else if (direction == "key") {
-				if (m[player.Y][player.X - 1] == 'L') {
+				if (m[player.Y - 1][player.X] == 'L') {
 					cout << "Unlock de door" << endl;
-					m[player.Y][player.X - 1] = '.';
+					m[player.Y - 1][player.X] = '.';
 				}
 			}
 
