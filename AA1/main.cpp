@@ -109,7 +109,7 @@ void Intro(Player& player) {
 
 void Navigation(Player& player, char map[][SIZE]) {
 
-	if (map[player.Y][player.X] = 'L') 
+	if (map[player.Y][player.X] == 'L') 
 		currentScene = BOSS;
 	
 	else if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
