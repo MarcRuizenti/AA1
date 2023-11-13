@@ -285,6 +285,7 @@ void Combat(Player& p, char m[][SIZE]) {
 			p.health = 0;
 
 		if (enemigoActual.health == 0) {
+			cout << "You win!!!!!" << endl;
 			currentScene = NAVIGATION;
 			m[p.Y][p.X] = '.';
 			return;
@@ -558,7 +559,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 				}
 			}
 			else if (direction == "bomb") {
-				cout << "¡¡¡¡Boooooomb!!!!" << endl;
+				cout << "Boooooomb!!!!" << endl;
 				cout << ene.name << " lost 100Hp" << endl;
 				ene.health -= 100;
 
@@ -568,7 +569,7 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 					cout << "Don't have sword" << endl;
 				}
 				else {
-					cout << "¡¡¡Zas!!!" << endl;
+					cout << "Zas!!!" << endl;
 					cout << ene.name << " lost 40Hp" << endl;
 					ene.health -= 40;
 				}
