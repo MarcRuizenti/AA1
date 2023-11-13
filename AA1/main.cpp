@@ -334,15 +334,19 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		if (comando == "go") {
 
 			if (direction == "east" && e) {
+				cout << player.name << "move to east" << endl;
 				player.X += 1;
 			}
 			else if (direction == "west" && w) {
+				cout << player.name << "move to west" << endl;
 				player.X -= 1;
 			}
 			else if (direction == "south" && s) {
+				cout << player.name << "move to south" << endl;
 				player.Y += 1;
 			}
 			else if (direction == "north" && n) {
+				cout << player.name << "move to north" << endl;
 				player.Y -= 1;
 			}
 			else {
@@ -388,15 +392,18 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		else if (comando == "pick") {
 			if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
 				if (direction == "potion") {
+					cout << player.name << "pick a potion" << endl;
 					player.potion += 1;
 					m[player.Y][player.X] = '.';
 				}
 				else if (direction == "bomb") {
+					cout << player.name << "pick a bomb" << endl;
 					player.bomb += 1;
 					m[player.Y][player.X] = '.';
 				}
 				else if (direction == "sword") {
 					if (player.sword == false) {
+						cout << player.name << "pick a sword" << endl;
 						player.sword = true;
 						m[player.Y][player.X] = '.';
 					}
@@ -406,6 +413,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 				else if (direction == "key") {
 					if (player.key == false) {
+						cout << player.name << "pick the key" << endl;
 						player.key = true;
 						m[player.Y][player.X] = '.';
 					}
@@ -524,8 +532,18 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 				cout << "Estas en comabte no puedes hacer eso" << endl;
 		else if (comando == "use") {
 			if (direction == "potion") {
-				player.health += 40;
-				cout << "You recover 40Hp, now you have: " << player.health << "Hp" << endl;
+				if (player.health == player.maxHealth)
+					cout << "You have a max heath" << endl;
+				else {
+					if (player.health + 40 < player.maxHealth) {
+						player.health += 40;
+						cout << "You recover 40Hp, now you have: " << player.health << "Hp" << endl;
+					}
+					else {
+						player.health += (player.maxHealth - player.health);
+						cout << "You recover " << player.maxHealth - player.health << ", now you have : " << player.health << "Hp" << endl;
+					}
+				}
 			}
 			else if (direction == "bomb") {
 				cout << "¡¡¡¡Boooooomb!!!!" << endl;
