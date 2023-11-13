@@ -361,12 +361,8 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << "status" << endl;
 			cout << "    " << "The status comand shows your name, health and the inventory" << endl;
 			cout << " " << endl;
-			cout << "------- COMAND IN COMBAT -------" << endl;
-			cout << "status" << endl;
-			cout << "    " << "The status comand shows your name, health and the inventory" << endl;
-			cout << " " << endl;
-			cout << "use + [potion | sword | bomb | key]" << endl;
-			cout << " " << endl;
+			cout << "punch" << endl;
+			cout << "    " << "Base attack" << endl << endl;
 		}
 		else if (comando == "status") {
 			cout << "------------ PLAYER ------------" << endl;
@@ -560,4 +556,3 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 	}
 
 }
-
