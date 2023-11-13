@@ -401,18 +401,22 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << " " << endl;
 		}
 		else if (comando == "pick") {
-			if (m[player.Y][player.X] == 'P' || m[player.Y][player.X] == 'B' || m[player.Y][player.X] == 'S' || m[player.Y][player.X] == 'K') {
+			if (m[player.Y][player.X] == 'P') {
 				if (direction == "potion") {
 					cout << player.name << " pick a potion" << endl;
 					player.potion += 1;
 					m[player.Y][player.X] = '.';
 				}
-				else if (direction == "bomb") {
+			}
+			else if (m[player.Y][player.X] == 'B') {
+				if (direction == "bomb") {
 					cout << player.name << " pick a bomb" << endl;
 					player.bomb += 1;
 					m[player.Y][player.X] = '.';
 				}
-				else if (direction == "sword") {
+			}
+			else if (m[player.Y][player.X] == 'S') {
+				if (direction == "sword") {
 					if (player.sword == false) {
 						cout << player.name << " pick a sword" << endl;
 						player.sword = true;
@@ -422,7 +426,9 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 						cout << "You have it" << endl;
 					}
 				}
-				else if (direction == "key") {
+			}
+			else if (m[player.Y][player.X] == 'K') {
+				if (direction == "key") {
 					if (player.key == false) {
 						cout << player.name << " pick the key" << endl;
 						player.key = true;
@@ -464,9 +470,14 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				cout << "This item can only use in combat" << endl;
 			}
 			else if (direction == "key") {
-				if (m[player.Y - 1][player.X] == 'L') {
-					cout << "Unlock de door" << endl;
-					m[player.Y - 1][player.X] = '.';
+				if (player.key) {
+					if (m[player.Y - 1][player.X] == 'L') {
+						cout << "Unlock de door" << endl;
+						m[player.Y - 1][player.X] = '.';
+					}
+				}
+				else {
+					cout << "You not have key" << endl;
 				}
 			}
 
