@@ -94,11 +94,10 @@ int main() {
 void Intro(Player& player) {
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
-	cout << "The evil Jarenauer has stolen the sacred gem. " << endl;
-	cout << "It is your duty as the chosen hero to defeat him and retrieve the gem to restore peace. " << endl;
-	cout << " " << endl;
-	cout << "You have an enchanted charm that tells you where Jarenauer's lair is " << endl;
-	cout << " " << endl;
+	cout << "The protagonist must go through an adventure that will lead him to encounter difficulties.";
+	cout << "On his journey he will find tools to fight against the monsters that await him until he reaches the final objective, the devil.";
+	cout << "The demon threatens to wipe out all humans if they do not heed his requests.";
+	cout << "As a hero you must defeat him to save the world from despair.";
 	cout << "Use the HELP command to show the options " << endl;
 	cout << "------------------------------------------------" << endl;
 	cout << "May I ask your name, brave hero? ";
