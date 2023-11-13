@@ -128,10 +128,10 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "The penchant detects an evil aura at west" << endl;
 
 		cout << "You can go: ";
-		bool north = map[player.Y - 1][player.X] != '#';
-		bool west = map[player.Y][player.X - 1] != '#';
-		bool east = map[player.Y][player.X + 1] != '#';
-		bool south = map[player.Y + 1][player.X] != '#';
+		bool north = map[player.Y - 1][player.X] != '#' && map[player.Y - 1][player.X] != 'L';
+		bool west = map[player.Y][player.X - 1] != '#' && map[player.Y - 1][player.X] != 'L';
+		bool east = map[player.Y][player.X + 1] != '#' && map[player.Y - 1][player.X] != 'L';
+		bool south = map[player.Y + 1][player.X] != '#' && map[player.Y - 1][player.X] != 'L';
 
 		if (north) {
 			cout << "[NORTH]";
@@ -487,14 +487,14 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 	}
 	else {
 		string comando, direction;
-		size_t space_pos = input.find(' '); // Busca el primer espacio en la cadena
+		size_t space_pos = input.find(' '); 
 
-		if (space_pos != string::npos) { // Si se encontró un espacio
-			comando = input.substr(0, space_pos); // Obtiene la parte antes del espacio
-			direction = input.substr(space_pos + 1); // Obtiene la parte después del espacio
+		if (space_pos != string::npos) { 
+			comando = input.substr(0, space_pos); 
+			direction = input.substr(space_pos + 1); 
 		}
 		else {
-			comando = input; // Si no se encontró un espacio, todo es el comando
+			comando = input; 
 		}
 
 		for (int i = 0; i < comando.size(); i++) {
