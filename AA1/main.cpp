@@ -310,14 +310,14 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 	}
 	else {
 		string comando, direction;
-		size_t space_pos = input.find(' '); // Busca el primer espacio en la cadena
+		size_t space_pos = input.find(' '); 
 
-		if (space_pos != string::npos) { // Si se encontró un espacio
-			comando = input.substr(0, space_pos); // Obtiene la parte antes del espacio
-			direction = input.substr(space_pos + 1); // Obtiene la parte después del espacio
+		if (space_pos != string::npos) { 
+			comando = input.substr(0, space_pos);
+			direction = input.substr(space_pos + 1); 
 		}
 		else {
-			comando = input; // Si no se encontró un espacio, todo es el comando
+			comando = input; 
 		}
 
 		for (int i = 0; i < comando.size(); i++) {
