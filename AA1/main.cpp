@@ -462,6 +462,9 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 		else if (comando == "punch") {
 			cout << "No estas en combate" << endl;
 		}
+		else {
+			cout << "Not valid command" << endl;
+		}
 	}
 	if (m[player.Y][player.X] != 'G' && m[player.Y][player.X] != 'O' && m[player.Y][player.X] != 'T')
 		system("pause");
@@ -585,7 +588,9 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 			ene.health -= 10;
 
 		}
-		
+		else {
+			cout << "Not valid command" << endl;
+		}
 	}
 
 }
