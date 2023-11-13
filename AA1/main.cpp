@@ -288,12 +288,14 @@ void Combat(Player& p, char m[][SIZE]) {
 			cout << "You win!!!!!" << endl;
 			currentScene = NAVIGATION;
 			m[p.Y][p.X] = '.';
+			system("pause");
 			return;
 		}
 		else if (p.health == 0) {
 			currentScene = 124;
 			return;
 		}	
+		
 		system("pause");
 	}
 }
