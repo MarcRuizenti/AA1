@@ -620,6 +620,4 @@ void Boss(Player& p) {
 		250,
 		20
 	};
-
-
 }
