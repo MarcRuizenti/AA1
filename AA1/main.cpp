@@ -147,6 +147,7 @@ void Navigation(Player& player, char map[][SIZE]) {
 		}
 		cout << endl;
 
+
 		if (map[player.Y][player.X] == 'P')
 			cout << "There is a Potion on the floor" << endl;
 		else if (map[player.Y][player.X] == 'B')
@@ -170,6 +171,8 @@ void Navigation(Player& player, char map[][SIZE]) {
 			cout << "There is a Orc at north" << endl;
 		else if (map[player.Y - 1][player.X] == 'T')
 			cout << "There is a Troll at north" << endl;
+		else if (map[player.Y - 1][player.X] == 'L')
+			cout << "There is a lock door in north" << endl;
 
 		if (map[player.Y + 1][player.X] == 'P')
 			cout << "There is a Potion at south" << endl;
