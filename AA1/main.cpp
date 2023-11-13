@@ -618,33 +618,31 @@ void Boss(Player& p, char m[][SIZE]) {
 		20
 	};
 
-	Enemigos enemigoActual;
-
 	while (true) {
 		system("cls");
 
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
 		cout << "VS" << endl;
-		cout << "[" << enemigoActual.name << "] HP:[" << enemigoActual.health << "/" << enemigoActual.maxHealth << "]" << endl;
+		cout << "[" << boss.name << "] HP:[" << boss.health << "/" << boss.maxHealth << "]" << endl;
 
-		whatwillyoudoCombat(p, enemigoActual);
+		whatwillyoudoCombat(p, boss);
 
-		if (enemigoActual.health < 0)
-			enemigoActual.health = 0;
+		if (boss.health < 0)
+			boss.health = 0;
 
 
-		if (enemigoActual.health != 0) {
-			cout << enemigoActual.name << " attack and you loss " << enemigoActual.damage << "Hp" << endl;
-			p.health -= enemigoActual.damage;
+		if (boss.health != 0) {
+			cout << boss.name << " attack and you loss " << boss.damage << "Hp" << endl;
+			p.health -= boss.damage;
 		}
 		else {
-			cout << "You kill a " << enemigoActual.name << endl;
+			cout << "You kill a " << boss.name << endl;
 		}
 
 		if (p.health < 0)
 			p.health = 0;
 
-		if (enemigoActual.health == 0) {
+		if (boss.health == 0) {
 			cout << "You win!!!!!" << endl;
 			currentScene = NAVIGATION;
 			m[p.Y][p.X] = '.';
