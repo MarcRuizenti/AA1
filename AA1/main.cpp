@@ -152,9 +152,9 @@ void Navigation(Player& player, char map[][SIZE]) {
 		}
 		cout << endl;
 
-
 		char things[thingSize] = { 'P', 'B', 'K', 'S', 'G', 'O', 'T', 'L'};
 		string thingsAll[thingSize] = {"Potion", "Bomb", "Key", "Sword", "Goblin", "Orc", "Troll", "Lock door"};
+
 		if (map[player.Y][player.X] == 'P')
 			cout << "There is a Potion on the floor" << endl;
 		else if (map[player.Y][player.X] == 'B')
@@ -173,36 +173,16 @@ void Navigation(Player& player, char map[][SIZE]) {
 		if (map[player.Y - 1][player.X] == 'J')
 			cout << "There is a devyl aura is too potent in north" << endl;
 
-		if (map[player.Y + 1][player.X] == 'P')
-			cout << "There is a Potion at south" << endl;
-		else if (map[player.Y + 1][player.X] == 'B')
-			cout << "There is a Bomb at south" << endl;
-		else if (map[player.Y + 1][player.X] == 'K')
-			cout << "There is a Key at south" << endl;
-		else if (map[player.Y + 1][player.X] == 'S')
-			cout << "There is a Sword at south" << endl;
-		else if (map[player.Y + 1][player.X] == 'G')
-			cout << "There is a Goblin at south" << endl;
-		else if (map[player.Y + 1][player.X] == 'O')
-			cout << "There is a Orc at south" << endl;
-		else if (map[player.Y + 1][player.X] == 'T')
-			cout << "There is a Troll at south" << endl;
+		for (int i = 0; i < thingSize; i++) {
+			if (map[player.Y + 1][player.X] == things[i])
+				cout << "There is a " << thingsAll[i] << " at south" << endl;
+		}
 
-		if (map[player.Y][player.X - 1] == 'P')
-			cout << "There is a Potion at west" << endl;
-		else if (map[player.Y][player.X - 1] == 'B')
-			cout << "There is a Bomb at west" << endl;
-		else if (map[player.Y][player.X - 1] == 'K')
-			cout << "There is a Key at west" << endl;
-		else if (map[player.Y][player.X - 1] == 'S')
-			cout << "There is a Sword at west" << endl;
-		else if (map[player.Y][player.X - 1] == 'G')
-			cout << "There is a Goblin at west" << endl;
-		else if (map[player.Y][player.X - 1] == 'O')
-			cout << "There is a Orc at west" << endl;
-		else if (map[player.Y][player.X - 1] == 'T')
-			cout << "There is a Troll at west" << endl;
-
+		for (int i = 0; i < thingSize; i++) {
+			if (map[player.Y][player.X - 1] == things[i])
+				cout << "There is a " << thingsAll[i] << " at west" << endl;
+		}
+	
 
 		for (int i = 0; i < thingSize; i++) {
 			if (map[player.Y][player.X + 1] == things[i])
