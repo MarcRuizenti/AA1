@@ -59,14 +59,14 @@ int main() {
 
 	Player player{
 		"Luis",
-		1,
-		1,
+		4,
+		5,
 		100,
 		100,
 		0,
 		0,
 		false,
-		false
+		true
 	};
 
 	while (true) {
@@ -108,9 +108,8 @@ void Intro(Player& player) {
 
 void Navigation(Player& player, char map[][SIZE]) {
 
-	if (map[player.Y][player.X] == 'J') 
+	if (map[player.Y][player.X] == 'J')
 		currentScene = BOSS;
-	
 	else if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
 		system("cls");
 
@@ -301,6 +300,7 @@ void Combat(Player& p, char m[][SIZE]) {
 			return;
 		}
 		else if (p.health == 0) {
+			cout << "GAME OVER!!!!!" << endl;
 			currentScene = 124;
 			return;
 		}	
@@ -621,25 +621,28 @@ void Boss(Player& p) {
 		290,
 		20
 	};
-	cout << "                           ,-." << endl;
-	cout << "      ___,---.__          /'|`\          __,---,___" << endl;
-	cout << "   ,-'    \`    `-.____,-'  |  `-.____,-'    //    `-." << endl;
-	cout << "  ,'       |          ~'\      /`~           |        `." << endl;
-	cout << " /      ___//             `. ,'          ,  , \___      \ " << endl;
-	cout << "|    ,-'   `-._    _        |        ,    __,-'   `-.    |" << endl;
-	cout << "|   /         /\_  `   .    |    ,      _/\          \   |" << endl;
-	cout << "\  |          \ \`-.___ \   |   / ___,-'/ /           |  /" << endl;
-	cout << " \  \          | `._   `\\  |  //'   _,' |           /  /" << endl;
-	cout << "  `-.\        /'  _ `---'' , . ``---'  _ `\         /,-'" << endl;
-	cout << "     ``      /     \    ,='/ \`=.    /     \       ''" << endl;
-	cout << "            |__   /|\_,--.,-.--,--._/|\   __|" << endl;
-	cout << "            /  `./  \\`\ |  |  | /,//' \,'  \ " << endl;
-	cout << "           /   /     ||--+--|--+-/-|     \   \ " << endl;
-	cout << "          |   |     /'\_\_\ | /_/_/`\     |   |" << endl;
-	cout << "           \   \__, \_     `~'     _/ .__/   /" << endl;
-	cout << "            `-._,-'   `-._______,-'   `-._,-'" << endl;
+	
+	
 	while (true) {
 		system("cls");
+
+		cout << "                           ,-." << endl;
+		cout << "      ___,---.__          /'|`\\          __,---,___" << endl;
+		cout << "   ,-'    \\`    `-.____,-'  |  `-.____,-'    //    `-." << endl;
+		cout << "  ,'       |          ~'\\      /`~           |        `." << endl;
+		cout << " /      ___//             `. ,'          ,  , \\___      \\ " << endl;
+		cout << "|    ,-'   `-._    _        |        ,    __,-'   `-.    |" << endl;
+		cout << "|   /         /\\_  `   .    |    ,      _/ \\         \\   |" << endl;
+		cout << "\\  |          \\ \\`-.___ \\   |   / ___,-'/ /           |  /" << endl;
+		cout << " \\  \\          | `._   `\\\\  |  //'   _,' |           /  /" << endl;
+		cout << "  `-.\\        /'  _ `---'' , . ``---'  _ `\\         /,-'" << endl;
+		cout << "     ``      /     \    ,='/ \`=.    /      \\       ''" << endl;
+		cout << "            |__   /|\_,--.,-.--,--._/|\   __|" << endl;
+		cout << "            /  `./  \\\\`\\ |  |  | /,//'\\,'  \\ " << endl;
+		cout << "           /   /     ||--+--|--+-/-|    \\   \\ " << endl;
+		cout << "          |   |     /'\\_\\_\\ | /_/_/`\\    |   |" << endl;
+		cout << "           \\   \\__, \\_     `~'     _/ .__/   /" << endl;
+		cout << "            `-._,-'   `-._______,-'   `-._,-'" << endl << endl;
 
 		cout << "[" << p.name << "] HP:[" << p.health << "/" << p.maxHealth << "]" << endl;
 		cout << "VS" << endl;
@@ -669,6 +672,7 @@ void Boss(Player& p) {
 			return;
 		}
 		else if (p.health == 0) {
+			cout << "GAME OVER!!!!!" << endl;
 			currentScene = 124;
 			return;
 		}
