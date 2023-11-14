@@ -59,8 +59,8 @@ int main() {
 
 	Player player{
 		"Luis",
-		4,
-		5,
+		1,
+		1,
 		100,
 		100,
 		0,
@@ -107,7 +107,7 @@ void Intro(Player& player) {
 }
 
 void Navigation(Player& player, char map[][SIZE]) {
-
+	const int thingSize = 8;
 	if (map[player.Y][player.X] == 'J')
 		currentScene = BOSS;
 	else if (map[player.Y][player.X] != 'G' && map[player.Y][player.X] != 'O' && map[player.Y][player.X] != 'T') {
@@ -153,6 +153,8 @@ void Navigation(Player& player, char map[][SIZE]) {
 		cout << endl;
 
 
+		char things[thingSize] = { 'P', 'B', 'K', 'S', 'G', 'O', 'T', 'L'};
+		string thingsAll[thingSize] = {"Potion", "Bomb", "Key", "Sword", "Goblin", "Orc", "Troll", "Lock door"};
 		if (map[player.Y][player.X] == 'P')
 			cout << "There is a Potion on the floor" << endl;
 		else if (map[player.Y][player.X] == 'B')
@@ -162,23 +164,13 @@ void Navigation(Player& player, char map[][SIZE]) {
 		else if (map[player.Y][player.X] == 'S')
 			cout << "There is a Sword on the floor" << endl;
 
-		if (map[player.Y - 1][player.X] == 'P')
-			cout << "There is a Potion at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'B')
-			cout << "There is a Bomb at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'K')
-			cout << "There is a Key at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'S')
-			cout << "There is a Sword at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'G')
-			cout << "There is a Goblin at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'O')
-			cout << "There is a Orc at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'T')
-			cout << "There is a Troll at north" << endl;
-		else if (map[player.Y - 1][player.X] == 'L')
-			cout << "There is a lock door in north" << endl;
-		else if (map[player.Y - 1][player.X] == 'J')
+
+		for (int i = 0; i < thingSize; i++) {
+			if (map[player.Y - 1][player.X] == things[i])
+				cout << "There is a " << thingsAll[i] << " at north" << endl;
+		}
+
+		if (map[player.Y - 1][player.X] == 'J')
 			cout << "There is a devyl aura is too potent in north" << endl;
 
 		if (map[player.Y + 1][player.X] == 'P')
@@ -211,20 +203,12 @@ void Navigation(Player& player, char map[][SIZE]) {
 		else if (map[player.Y][player.X - 1] == 'T')
 			cout << "There is a Troll at west" << endl;
 
-		if (map[player.Y][player.X + 1] == 'P')
-			cout << "There is a Potion at east" << endl;
-		else if (map[player.Y][player.X + 1] == 'B')
-			cout << "There is a Bomb at east" << endl;
-		else if (map[player.Y][player.X + 1] == 'K')
-			cout << "There is a Key at east" << endl;
-		else if (map[player.Y][player.X + 1] == 'S')
-			cout << "There is a Sword at east" << endl;
-		else if (map[player.Y][player.X + 1] == 'G')
-			cout << "There is a Goblin at east" << endl;
-		else if (map[player.Y][player.X + 1] == 'O')
-			cout << "There is a Orc at east" << endl;
-		else if (map[player.Y][player.X + 1] == 'T')
-			cout << "There is a Troll at east" << endl;
+
+		for (int i = 0; i < thingSize; i++) {
+			if (map[player.Y][player.X + 1] == things[i])
+				cout << "There is a " << thingsAll[i] << " at east" << endl;
+		}
+
 
 		whatwillyoudo(player, !north, !west, !east, !south, map);
 		
