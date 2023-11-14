@@ -24,7 +24,7 @@ struct Player {
 	bool key;
 };
 
-enum Raze { GOBLIN, ORC, TROLL, DEVIL };
+enum Raze { GOBLIN, ORC, TROLL, DEMON };
 struct Enemigos {
 	Raze raze;
 	string name;
@@ -92,10 +92,11 @@ int main() {
 void Intro(Player& player) {
 
 	cout << "------------ H E R O ' S  Q U E S T ------------" << endl;
-	cout << "The protagonist must go through an adventure that will lead him to encounter difficulties." << endl;
-	cout << "On his journey he will find tools to fight against the monsters that await him until he reaches the final objective, the devil." << endl;
-	cout << "The demon threatens to wipe out all humans if they do not heed his requests." << endl;
-	cout << "As a hero you must defeat him to save the world from despair." << endl;
+	cout << "The protagonist must go through an adventure that will lead him to encounter difficulties." << endl << endl;
+	cout << "On his journey he will find tools to fight against the monsters," << endl;
+	cout << "that await him until he reaches the final objective, the demon" << endl;
+	cout << "threatens to wipe out all humans if they do not heed his requests." << endl << endl;
+	cout << "As a hero you must defeat him to save the world from despair." << endl << endl;
 	cout << "Use the HELP command to show the options " << endl;
 	cout << "------------------------------------------------" << endl;
 	cout << "May I ask your name, brave hero? ";
@@ -620,8 +621,8 @@ void whatwillyoudoCombat(Player& player, Enemigos& ene) {
 
 void Boss(Player& p) {
 	Enemigos boss{
-		DEVIL,
-		"Devil",
+		DEMON,
+		"Demon",
 		290,
 		290,
 		20
