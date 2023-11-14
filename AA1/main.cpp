@@ -169,7 +169,6 @@ void Navigation(Player& player, char map[][SIZE]) {
 			if (map[player.Y - 1][player.X] == things[i])
 				cout << "There is a " << thingsAll[i] << " at north" << endl;
 		}
-
 		if (map[player.Y - 1][player.X] == 'J')
 			cout << "There is a devyl aura is too potent in north" << endl;
 
