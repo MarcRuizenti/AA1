@@ -319,14 +319,14 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 	}
 	else {
 		string comando, direction;
-		size_t space_pos = input.find(' '); 
+		size_t space_pos = input.find(' ');
 
-		if (space_pos != string::npos) { 
+		if (space_pos != string::npos) {
 			comando = input.substr(0, space_pos);
-			direction = input.substr(space_pos + 1); 
+			direction = input.substr(space_pos + 1);
 		}
 		else {
-			comando = input; 
+			comando = input;
 		}
 
 		for (int i = 0; i < comando.size(); i++) {
@@ -341,7 +341,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 			}
 		}
-		
+
 
 		if (comando == "go") {
 
@@ -364,7 +364,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			else {
 				cout << "You can't move in this direction" << endl;
 			}
-		
+
 		}
 		else if (comando == "help") {
 			cout << "------- COMAND -------" << endl;
@@ -402,48 +402,42 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 			cout << " " << endl;
 		}
 		else if (comando == "pick") {
-			if (m[player.Y][player.X] == 'P') {
-				if (direction == "potion") {
-					cout << player.name << " pick a potion" << endl;
-					player.potion += 1;
+
+			if (m[player.Y][player.X] == 'P' && direction == "potion") {
+				cout << player.name << " pick a potion" << endl;
+				player.potion += 1;
+				m[player.Y][player.X] = '.';
+			}
+			else if (m[player.Y][player.X] == 'B' && direction == "bomb") {
+				cout << player.name << " pick a bomb" << endl;
+				player.bomb += 1;
+				m[player.Y][player.X] = '.';
+			}
+			else if (m[player.Y][player.X] == 'S' && direction == "sword") {
+				if (player.sword == false) {
+					cout << player.name << " pick a sword" << endl;
+					player.sword = true;
 					m[player.Y][player.X] = '.';
 				}
+				else {
+					cout << "You have it" << endl;
+				}	
 			}
-			else if (m[player.Y][player.X] == 'B') {
-				if (direction == "bomb") {
-					cout << player.name << " pick a bomb" << endl;
-					player.bomb += 1;
+			else if (m[player.Y][player.X] == 'K' && direction == "key") {
+				if (player.key == false) {
+					cout << player.name << " pick the key" << endl;
+					player.key = true;
 					m[player.Y][player.X] = '.';
 				}
-			}
-			else if (m[player.Y][player.X] == 'S') {
-				if (direction == "sword") {
-					if (player.sword == false) {
-						cout << player.name << " pick a sword" << endl;
-						player.sword = true;
-						m[player.Y][player.X] = '.';
-					}
-					else {
-						cout << "You have it" << endl;
-					}
-				}
-			}
-			else if (m[player.Y][player.X] == 'K') {
-				if (direction == "key") {
-					if (player.key == false) {
-						cout << player.name << " pick the key" << endl;
-						player.key = true;
-						m[player.Y][player.X] = '.';
-					}
-					else {
-						cout << "You have it" << endl;
-					}
+				else {
+					cout << "You have it" << endl;
 				}
 			}
 			else {
 				cout << "This item is not here" << endl;
 			}
-		}
+		}			
+		
 		else if (comando == "use") {
 			if (direction == "potion") {
 				if (player.health == player.maxHealth) {
