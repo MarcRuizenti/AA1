@@ -241,7 +241,7 @@ void Combat(Player& p, char m[][SIZE]) {
 
 	Enemigos enemigo[3]{
 		{GOBLIN, "Goblin", 30, 30, 5},
-		{ORC, "Orco", 90, 90, 15},
+		{ORC, "Orco", 80, 80, 15},
 		{TROLL, "Troll", 60, 60, 10}
 	};
 
