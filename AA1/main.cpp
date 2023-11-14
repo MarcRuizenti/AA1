@@ -408,14 +408,20 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 					m[player.Y][player.X] = '.';
 				}
 			}
-			else if (m[player.Y][player.X] == 'B') {
+			else {
+				cout << "There is no item" << endl;
+			}
+			if (m[player.Y][player.X] == 'B') {
 				if (direction == "bomb") {
 					cout << player.name << " pick a bomb" << endl;
 					player.bomb += 1;
 					m[player.Y][player.X] = '.';
 				}
 			}
-			else if (m[player.Y][player.X] == 'S') {
+			else {
+				cout << "There is no item" << endl;
+			}
+			if (m[player.Y][player.X] == 'S') {
 				if (direction == "sword") {
 					if (player.sword == false) {
 						cout << player.name << " pick a sword" << endl;
@@ -427,7 +433,10 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 					}
 				}
 			}
-			else if (m[player.Y][player.X] == 'K') {
+			else {
+				cout << "There is no item" << endl;
+			}
+			if (m[player.Y][player.X] == 'K') {
 				if (direction == "key") {
 					if (player.key == false) {
 						cout << player.name << " pick the key" << endl;
