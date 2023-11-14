@@ -409,7 +409,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 			}
 			else {
-				cout << "There is no item" << endl;
+				cout << "There is no potion" << endl;
 			}
 			if (m[player.Y][player.X] == 'B') {
 				if (direction == "bomb") {
@@ -419,7 +419,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 			}
 			else {
-				cout << "There is no item" << endl;
+				cout << "There is no bomb" << endl;
 			}
 			if (m[player.Y][player.X] == 'S') {
 				if (direction == "sword") {
@@ -434,7 +434,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 			}
 			else {
-				cout << "There is no item" << endl;
+				cout << "There is no sword" << endl;
 			}
 			if (m[player.Y][player.X] == 'K') {
 				if (direction == "key") {
@@ -449,7 +449,7 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 				}
 			}
 			else {
-				cout << "There is no item" << endl;
+				cout << "There is no key" << endl;
 			}
 		}
 		else if (comando == "use") {
