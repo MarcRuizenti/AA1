@@ -4,13 +4,11 @@
 #include <string>
 #include <vector>
 
-
 enum Scene { INTRO, NAVIGATION, COMBAT, BOSS};
 
 #define SIZE 10
 int currentScene = INTRO;
 using namespace std;
-
 
 struct Player {
 	string name;
@@ -33,14 +31,12 @@ struct Enemigos {
 	int damage;
 };
 
-
 void whatwillyoudo(Player& player, bool n = false, bool w = false, bool e = false, bool s = false, char m[][SIZE] = {});
 void whatwillyoudoCombat(Player& player, Enemigos& ene);
 void Intro(Player& player);
 void Navigation(Player& player, char map[][SIZE]);
 void Combat(Player& p, char m[][SIZE]);
 void Boss(Player& p);
-
 
 int main() {
 	char map[SIZE][SIZE]{
@@ -599,7 +595,7 @@ void Boss(Player& p) {
 		cout << "\\  |          \\ \\`-.___ \\   |   / ___,-'/ /           |  /" << endl;
 		cout << " \\  \\          | `._   `\\\\  |  //'   _,' |           /  /" << endl;
 		cout << "  `-.\\        /'  _ `---'' , . ``---'  _ `\\         /,-'" << endl;
-		cout << "     ``      /     \    ,='/ \`=.    /      \\       ''" << endl;
+		cout << "     ``      /     \    ,='/ \\`=.    /      \\       ''" << endl;
 		cout << "            |__   /|\_,--.,-.--,--._/|\   __|" << endl;
 		cout << "            /  `./  \\\\`\\ |  |  | /,//'\\,'  \\ " << endl;
 		cout << "           /   /     ||--+--|--+-/-|    \\   \\ " << endl;
