@@ -415,8 +415,8 @@ void whatwillyoudo(Player& player, bool n, bool w, bool e, bool s, char m[][SIZE
 						player.potion -= 1;
 					}
 					else {
-						cout << "You recover " << player.maxHealth - player.health << "Hp, now you have : " << player.health + (player.maxHealth - player.health) << "Hp" << endl;
 						player.health = player.health + (player.maxHealth - player.health);
+						cout << "You recover " << player.maxHealth - player.health << "Hp, now you have : " << player.health << "Hp" << endl;
 						player.potion -= 1;
 					}
 				}
