@@ -52,7 +52,6 @@ int main() {
 		{'#','#','#','#','#','#','#','#','#','#'},
 	};
 
-
 	Player player{
 		"Luis",
 		1,
@@ -62,7 +61,7 @@ int main() {
 		0,
 		0,
 		false,
-		true
+		false
 	};
 
 	while (true) {
@@ -198,7 +197,7 @@ void Combat(Player& p, char m[][SIZE]) {
 	Raze razeEnemigo = ORC;
 
 	Enemigos enemigo[3]{
-		{GOBLIN, "Goblin", 30, 30, 5},
+		{GOBLIN, "Goblin", 40, 40, 5},
 		{ORC, "Orco", 80, 80, 15},
 		{TROLL, "Troll", 60, 60, 10}
 	};
